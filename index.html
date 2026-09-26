@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guilty Hour — a daily murder mystery logic puzzle</title>
+<meta name="description" content="A new murder case every day, the same for everyone. Place the suspects on the floor plan, read the clues and catch the killer. One solution, no guessing.">
+<link rel="canonical" href="https://guiltyhour.github.io/">
+<link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/">
+<link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/">
+<link rel="alternate" hreflang="x-default" href="https://guiltyhour.github.io/">
+<link rel="icon" href="img/icon-512.png">
+<meta name="theme-color" content="#C8102E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guilty Hour — a daily murder mystery logic puzzle">
+<meta property="og:description" content="A new murder case every day, the same for everyone. Place the suspects on the floor plan, read the clues and catch the killer. One solution, no guessing.">
+<meta property="og:url" content="https://guiltyhour.github.io/">
+<meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": ["MobileApplication", "VideoGame"], "name": "Guilty Hour", "url": "https://guiltyhour.github.io/", "description": "A new murder case every day, the same for everyone. Place the suspects on the floor plan, read the clues and catch the killer. One solution, no guessing.", "inLanguage": ["en", "es"], "operatingSystem": "ANDROID", "applicationCategory": "GameApplication", "genre": ["Puzzle", "Logic", "Mystery"], "gamePlatform": "Android", "image": "https://guiltyhour.github.io/img/icon-512.png", "screenshot": ["https://guiltyhour.github.io/img/en-1.webp", "https://guiltyhour.github.io/img/en-2.webp", "https://guiltyhour.github.io/img/en-3.webp", "https://guiltyhour.github.io/img/en-4.webp", "https://guiltyhour.github.io/img/en-5.webp", "https://guiltyhour.github.io/img/en-6.webp"], "installUrl": "https://play.google.com/store/apps/details?id=com.guiltyhour.app&hl=en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "author": {"@type": "Person", "name": "Sergio García"}}</script>
+<style>
+  :root {
+    color-scheme: light dark;
+    --verdict: #C8102E; --verdict-deep: #6B0F1A; --on-verdict: #FFFFFF;
+    --ink: #14110F; --paper: #F4F1EA; --card: #FFFFFF; --rule: #DDD6C8;
+    --muted: #5A534A; --link: #9E0D24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdict: #A50D26; --verdict-deep: #4A0A12;
+      --ink: #ECE7DE; --paper: #16181C; --card: #1F2227; --rule: #33363D;
+      --muted: #A9A298; --link: #F07A8C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+  header.hero { background: var(--verdict); color: var(--on-verdict); }
+  header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    font: .95rem system-ui, sans-serif;
+  }
+  .top a { color: var(--on-verdict); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+  .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08;
+    margin: 2.5rem 0 1rem; max-width: 16ch;
+  }
+  .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .cta {
+    display: inline-block; background: var(--on-verdict); color: #14110F;
+    padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
+    font: 700 1rem system-ui, sans-serif;
+  }
+  .soon { font: .9rem system-ui, sans-serif; opacity: .85; margin-top: .8rem; }
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2rem 1rem; margin: 0 auto; max-width: 60rem;
+  }
+  .shots img {
+    flex: 0 0 auto; width: min(60vw, 15rem); height: auto;
+    border-radius: 1rem; scroll-snap-align: center;
+    box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.18);
+  }
+  section { padding: 1.5rem 0; }
+  h2 { font-size: 1.6rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .35rem; }
+  .grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .8rem; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0; color: var(--muted); }
+  details {
+    border-top: 1px solid var(--rule); padding: .9rem 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  footer {
+    margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font: .9rem system-ui, sans-serif; color: var(--muted);
+  }
+  footer a { color: inherit; }
+  .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
+  .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
+  .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
+  .policy hr { border: 0; border-top: 1px solid var(--rule); margin: 4rem 0 3rem; }
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+<div class="top">
+<span class="brand"><img src="img/icon-512.png" alt="" width="40" height="40">Guilty Hour</span>
+<a href="es/" hreflang="es" lang="es">Español</a>
+</div>
+<h1>A murder mystery you solve with logic.</h1>
+<p class="lede">A new case every day, the same one for everyone, and a library of 280 more. No luck, no guessing. Just clues, suspects and deduction.</p>
+<a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en">Get it on Google Play</a>
+<p class="soon">Android now. iPhone later.</p>
+</div>
+</header>
+<div class="shots"><img src="img/en-1.webp" alt="The Scene: a floor plan half solved" width="432" height="768" loading="lazy"><img src="img/en-2.webp" alt="Guilty: the verdict after a correct accusation" width="432" height="768" loading="lazy"><img src="img/en-3.webp" alt="The Interrogation: the logic grid" width="432" height="768" loading="lazy"><img src="img/en-4.webp" alt="The home screen with today’s two cases" width="432" height="768" loading="lazy"><img src="img/en-5.webp" alt="The archive of cases" width="432" height="768" loading="lazy"><img src="img/en-6.webp" alt="How to play" width="432" height="768" loading="lazy"></div>
+<main class="wrap">
+<section><h2>How it works</h2><div class="grid"><div class="card"><h3>The Scene</h3><p>A murder sudoku. You get the floor plan of a house and a handful of suspects. Read the clues — “Nell was in the kitchen”, “Iris was not in the same row as the candle stand” — and place every suspect where they stood: one per row, one per column, one per room. When everyone is placed, the body appears. Work out who was with the victim and accuse.</p></div><div class="card"><h3>The Interrogation</h3><p>A classic logic grid. Match every suspect with a weapon, a room and a motive, rule out what cannot be, and name the killer.</p></div></div></section>
+<section><h2>Why players stay</h2><div class="grid"><div class="card"><h3>One solution, always</h3><p>Every case is checked before it ships. There is exactly one answer and you never have to guess.</p></div><div class="card"><h3>No forced adverts</h3><p>Nothing plays between cases. The only advert is one you choose to watch for an extra hint.</p></div><div class="card"><h3>Two daily cases</h3><p>One of each kind, each with its own streak.</p></div><div class="card"><h3>Share without spoilers</h3><p>A row of coloured squares that shows how you got there, never where anyone was.</p></div><div class="card"><h3>Plays offline</h3><p>Every case is inside the app. The whole game is about 25 MB.</p></div><div class="card"><h3>Written, not translated</h3><p>Cases are written natively in English and Spanish.</p></div></div></section>
+<section><h2>Questions</h2><details><summary>Is it free?</summary><p>Yes. Both daily cases and 280 library cases are free. Extra case files, hints, ranks and removing adverts are optional one-time purchases. There is no subscription.</p></details><details><summary>Do I need to be good at sudoku?</summary><p>No. If you can read “Nell was in the kitchen” and cross off what cannot be, you can solve a case. The first cases teach the rules as you go, and there are three difficulties.</p></details><details><summary>Can a case have two answers?</summary><p>No. Every case is verified by a program before it ships: exactly one arrangement fits every clue, and it can be reached without guessing.</p></details><details><summary>What happens if I get stuck?</summary><p>Three free checks a day tell you whether you are on track, and a free hint every day points at the next logical step instead of giving the answer away.</p></details><details><summary>Is it the same case for everybody?</summary><p>Yes. The daily case changes at midnight in your time zone, and everyone plays the same one that day, so you can compare results with friends.</p></details><details><summary>What data does it collect?</summary><p>Almost none. There are no accounts. See the privacy policy.</p></details></section>
+</main>
+<footer><div class="wrap">
+Guilty Hour · <a href="privacy/">Privacy policy</a> ·
+Contact: <a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a> ·
+<a href="es/" hreflang="es" lang="es">Español</a>
+</div></footer>
+</body>
+</html>
