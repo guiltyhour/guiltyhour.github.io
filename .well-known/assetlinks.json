@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "com.guiltyhour.app",
       "sha256_cert_fingerprints": [
-        "E6:E0:B0:33:47:14:CB:C9:9A:66:2D:ED:59:02:07:1D:D9:9B:45:09:6A:A2:BC:4E:6C:9A:F9:DE:AC:F6:DF:26"
+        "E6:E0:B0:33:47:14:CB:C9:9A:66:2D:ED:59:02:07:1D:D9:9B:45:09:6A:A2:BC:4E:6C:9A:F9:DE:AC:F6:DF:26",
+        "3A:A0:C4:A7:94:DE:9F:CA:69:B8:8D:B5:BC:E2:1F:0E:2F:69:97:D5:6D:0E:25:09:08:EA:A4:64:59:EF:2E:91"
       ]
     }
   }
