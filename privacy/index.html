@@ -80,6 +80,34 @@
     font: .9rem system-ui, sans-serif; color: var(--muted);
   }
   footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
   .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
   .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
   .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }

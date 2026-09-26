@@ -93,6 +93,34 @@
     font: .9rem system-ui, sans-serif; color: var(--muted);
   }
   footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
   .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
   .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
   .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
@@ -112,14 +140,15 @@
 <p class="soon">Ya en Android. En iPhone, más adelante.</p>
 </div>
 </header>
-<div class="shots"><img src="../img/es-1.webp" alt="La Escena: un plano a medio resolver" width="432" height="768" loading="lazy"><img src="../img/es-2.webp" alt="Culpable: el veredicto tras una acusación acertada" width="432" height="768" loading="lazy"><img src="../img/es-3.webp" alt="El Interrogatorio: la rejilla de lógica" width="432" height="768" loading="lazy"><img src="../img/es-4.webp" alt="La pantalla de inicio con los dos casos de hoy" width="432" height="768" loading="lazy"><img src="../img/es-5.webp" alt="El archivo de casos" width="432" height="768" loading="lazy"><img src="../img/es-6.webp" alt="Cómo se juega" width="432" height="768" loading="lazy"></div>
+<div class="shots"><img src="../img/es-1.webp" alt="La Escena: un plano a medio resolver" width="432" height="768" loading="lazy"><img src="../img/es-2.webp" alt="Culpable: el veredicto tras una acusación acertada" width="432" height="768" loading="lazy"><img src="../img/es-3.webp" alt="El Interrogatorio: averiguando quién tenía cada arma" width="432" height="768" loading="lazy"><img src="../img/es-4.webp" alt="La pantalla de inicio con los dos casos de hoy" width="432" height="768" loading="lazy"><img src="../img/es-5.webp" alt="El archivo de casos" width="432" height="768" loading="lazy"><img src="../img/es-6.webp" alt="Cómo se juega" width="432" height="768" loading="lazy"></div>
 <main class="wrap">
-<section><h2>Cómo se juega</h2><div class="grid"><div class="card"><h3>La Escena</h3><p>Un sudoku de crímenes. Tienes el plano de una casa y un puñado de sospechosos. Lee las pistas —«Nieves estaba en la cocina», «Iris no estaba en la misma fila que el candelabro»— y coloca a cada sospechoso donde estaba: uno por fila, uno por columna, uno por sala. Cuando están todos, aparece el cuerpo. Averigua quién estaba con la víctima y acusa.</p></div><div class="card"><h3>El Interrogatorio</h3><p>La clásica rejilla de lógica. Empareja a cada sospechoso con un arma, una sala y un motivo, descarta lo imposible y señala al asesino.</p></div></div></section>
+<section><h2>Cómo se juega</h2><div class="grid"><div class="card"><h3>La Escena</h3><p>Un sudoku de crímenes. Tienes el plano de una casa y un puñado de sospechosos. Lee las pistas —«Nieves estaba en la cocina», «Iris no estaba en la misma fila que el candelabro»— y coloca a cada sospechoso donde estaba: uno por fila, uno por columna, uno por sala. Cuando están todos, aparece el cuerpo. Averigua quién estaba con la víctima y acusa.</p></div><div class="card"><h3>El Interrogatorio</h3><p>Un caso de quién fue. Cada sospechoso llevaba un arma, estaba en una sala y tenía un motivo. Cruza lo que dicen las pistas, descarta lo imposible y descubre quién lo hizo, con qué, dónde y por qué.</p></div></div></section>
 <section><h2>Por qué engancha</h2><div class="grid"><div class="card"><h3>Una sola solución, siempre</h3><p>Cada caso se comprueba antes de publicarse. Hay exactamente una respuesta y nunca tienes que adivinar.</p></div><div class="card"><h3>Sin anuncios obligatorios</h3><p>No sale nada entre caso y caso. El único anuncio es el que tú eliges ver para conseguir una pista más.</p></div><div class="card"><h3>Dos casos diarios</h3><p>Uno de cada tipo, cada uno con su racha.</p></div><div class="card"><h3>Comparte sin destripar</h3><p>Una fila de cuadrados de colores que cuenta cómo lo resolviste, nunca dónde estaba nadie.</p></div><div class="card"><h3>Sin conexión</h3><p>Todos los casos van dentro de la app. El juego entero ocupa unos 25 MB.</p></div><div class="card"><h3>Escrito, no traducido</h3><p>Los casos están escritos directamente en español.</p></div></div></section>
 <section><h2>Preguntas</h2><details><summary>¿Es gratis?</summary><p>Sí. Los dos casos diarios y 280 casos de la biblioteca son gratis. Los expedientes extra, las pistas, los rangos y quitar los anuncios son compras únicas opcionales. No hay suscripción.</p></details><details><summary>¿Hace falta ser bueno con el sudoku?</summary><p>No. Si sabes leer «Nieves estaba en la cocina» y tachar lo que no puede ser, puedes resolver un caso. Los primeros casos enseñan las reglas sobre la marcha, y hay tres dificultades.</p></details><details><summary>¿Puede un caso tener dos soluciones?</summary><p>No. Cada caso lo verifica un programa antes de publicarse: solo una colocación cumple todas las pistas, y se llega a ella sin adivinar.</p></details><details><summary>¿Y si me atasco?</summary><p>Tres comprobaciones gratis al día te dicen si vas bien, y una pista gratis cada día te señala el siguiente paso lógico sin chivarte la respuesta.</p></details><details><summary>¿El caso es el mismo para todos?</summary><p>Sí. El caso diario cambia a medianoche en tu zona horaria y ese día todo el mundo juega el mismo, así que puedes comparar resultados con tus amigos.</p></details><details><summary>¿Qué datos recoge?</summary><p>Casi ninguno. No hay cuentas. Lo explica la política de privacidad.</p></details></section>
+<section><h2>Guías</h2><ul class="guides"><li><a href="../es/como-resolver-un-sudoku-de-crimenes/">Cómo resolver un sudoku de crímenes, paso a paso</a></li><li><a href="../es/como-resolver-el-interrogatorio/">Cómo resolver El Interrogatorio</a></li></ul></section>
 </main>
 <footer><div class="wrap">
-Guilty Hour · <a href="../privacy/">Política de privacidad</a> ·
+Guilty Hour · <a href="../es/prensa/">Prensa</a> · <a href="../privacy/">Política de privacidad</a> ·
 Contacto: <a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a> ·
 <a href="../" hreflang="en" lang="en">English</a>
 </div></footer>

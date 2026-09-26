@@ -93,6 +93,34 @@
     font: .9rem system-ui, sans-serif; color: var(--muted);
   }
   footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
   .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
   .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
   .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
@@ -112,14 +140,15 @@
 <p class="soon">Android now. iPhone later.</p>
 </div>
 </header>
-<div class="shots"><img src="img/en-1.webp" alt="The Scene: a floor plan half solved" width="432" height="768" loading="lazy"><img src="img/en-2.webp" alt="Guilty: the verdict after a correct accusation" width="432" height="768" loading="lazy"><img src="img/en-3.webp" alt="The Interrogation: the logic grid" width="432" height="768" loading="lazy"><img src="img/en-4.webp" alt="The home screen with today’s two cases" width="432" height="768" loading="lazy"><img src="img/en-5.webp" alt="The archive of cases" width="432" height="768" loading="lazy"><img src="img/en-6.webp" alt="How to play" width="432" height="768" loading="lazy"></div>
+<div class="shots"><img src="img/en-1.webp" alt="The Scene: a floor plan half solved" width="432" height="768" loading="lazy"><img src="img/en-2.webp" alt="Guilty: the verdict after a correct accusation" width="432" height="768" loading="lazy"><img src="img/en-3.webp" alt="The Interrogation: working out who had which weapon" width="432" height="768" loading="lazy"><img src="img/en-4.webp" alt="The home screen with today’s two cases" width="432" height="768" loading="lazy"><img src="img/en-5.webp" alt="The archive of cases" width="432" height="768" loading="lazy"><img src="img/en-6.webp" alt="How to play" width="432" height="768" loading="lazy"></div>
 <main class="wrap">
-<section><h2>How it works</h2><div class="grid"><div class="card"><h3>The Scene</h3><p>A murder sudoku. You get the floor plan of a house and a handful of suspects. Read the clues — “Nell was in the kitchen”, “Iris was not in the same row as the candle stand” — and place every suspect where they stood: one per row, one per column, one per room. When everyone is placed, the body appears. Work out who was with the victim and accuse.</p></div><div class="card"><h3>The Interrogation</h3><p>A classic logic grid. Match every suspect with a weapon, a room and a motive, rule out what cannot be, and name the killer.</p></div></div></section>
+<section><h2>How it works</h2><div class="grid"><div class="card"><h3>The Scene</h3><p>A murder sudoku. You get the floor plan of a house and a handful of suspects. Read the clues — “Nell was in the kitchen”, “Iris was not in the same row as the candle stand” — and place every suspect where they stood: one per row, one per column, one per room. When everyone is placed, the body appears. Work out who was with the victim and accuse.</p></div><div class="card"><h3>The Interrogation</h3><p>A whodunit. Every suspect had a weapon, was in a room and had a motive. Cross-check what the clues say, rule out what cannot be, and work out who did it, with what, where and why.</p></div></div></section>
 <section><h2>Why players stay</h2><div class="grid"><div class="card"><h3>One solution, always</h3><p>Every case is checked before it ships. There is exactly one answer and you never have to guess.</p></div><div class="card"><h3>No forced adverts</h3><p>Nothing plays between cases. The only advert is one you choose to watch for an extra hint.</p></div><div class="card"><h3>Two daily cases</h3><p>One of each kind, each with its own streak.</p></div><div class="card"><h3>Share without spoilers</h3><p>A row of coloured squares that shows how you got there, never where anyone was.</p></div><div class="card"><h3>Plays offline</h3><p>Every case is inside the app. The whole game is about 25 MB.</p></div><div class="card"><h3>Written, not translated</h3><p>Cases are written natively in English and Spanish.</p></div></div></section>
 <section><h2>Questions</h2><details><summary>Is it free?</summary><p>Yes. Both daily cases and 280 library cases are free. Extra case files, hints, ranks and removing adverts are optional one-time purchases. There is no subscription.</p></details><details><summary>Do I need to be good at sudoku?</summary><p>No. If you can read “Nell was in the kitchen” and cross off what cannot be, you can solve a case. The first cases teach the rules as you go, and there are three difficulties.</p></details><details><summary>Can a case have two answers?</summary><p>No. Every case is verified by a program before it ships: exactly one arrangement fits every clue, and it can be reached without guessing.</p></details><details><summary>What happens if I get stuck?</summary><p>Three free checks a day tell you whether you are on track, and a free hint every day points at the next logical step instead of giving the answer away.</p></details><details><summary>Is it the same case for everybody?</summary><p>Yes. The daily case changes at midnight in your time zone, and everyone plays the same one that day, so you can compare results with friends.</p></details><details><summary>What data does it collect?</summary><p>Almost none. There are no accounts. See the privacy policy.</p></details></section>
+<section><h2>Guides</h2><ul class="guides"><li><a href="how-to-solve-murder-sudoku/">How to solve a murder sudoku, step by step</a></li><li><a href="how-to-solve-the-interrogation/">How to solve The Interrogation</a></li></ul></section>
 </main>
 <footer><div class="wrap">
-Guilty Hour · <a href="privacy/">Privacy policy</a> ·
+Guilty Hour · <a href="press/">Press kit</a> · <a href="privacy/">Privacy policy</a> ·
 Contact: <a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a> ·
 <a href="es/" hreflang="es" lang="es">Español</a>
 </div></footer>

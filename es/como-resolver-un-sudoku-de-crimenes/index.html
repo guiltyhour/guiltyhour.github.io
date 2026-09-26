@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo resolver un sudoku de crímenes, paso a paso</title>
+<meta name="description" content="Las reglas de La Escena de Guilty Hour y un caso real resuelto de principio a fin: filas, columnas y salas para encontrar al asesino.">
+<link rel="canonical" href="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
+<link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
+<link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
+<link rel="icon" href="../../img/icon-512.png">
+<meta name="theme-color" content="#C8102E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cómo resolver un sudoku de crímenes, paso a paso">
+<meta property="og:description" content="Las reglas de La Escena de Guilty Hour y un caso real resuelto de principio a fin: filas, columnas y salas para encontrar al asesino.">
+<meta property="og:url" content="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
+<meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo resolver un sudoku de crímenes, paso a paso", "description": "Las reglas de La Escena de Guilty Hour y un caso real resuelto de principio a fin: filas, columnas y salas para encontrar al asesino.", "inLanguage": "es", "url": "https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26"}</script>
+<style>
+  :root {
+    color-scheme: light dark;
+    --verdict: #C8102E; --verdict-deep: #6B0F1A; --on-verdict: #FFFFFF;
+    --ink: #14110F; --paper: #F4F1EA; --card: #FFFFFF; --rule: #DDD6C8;
+    --muted: #5A534A; --link: #9E0D24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdict: #A50D26; --verdict-deep: #4A0A12;
+      --ink: #ECE7DE; --paper: #16181C; --card: #1F2227; --rule: #33363D;
+      --muted: #A9A298; --link: #F07A8C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+  header.hero { background: var(--verdict); color: var(--on-verdict); }
+  header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    font: .95rem system-ui, sans-serif;
+  }
+  .top a { color: var(--on-verdict); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+  .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08;
+    margin: 2.5rem 0 1rem; max-width: 16ch;
+  }
+  .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .cta {
+    display: inline-block; background: var(--on-verdict); color: #14110F;
+    padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
+    font: 700 1rem system-ui, sans-serif;
+  }
+  .soon { font: .9rem system-ui, sans-serif; opacity: .85; margin-top: .8rem; }
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2rem 1rem; margin: 0 auto; max-width: 60rem;
+  }
+  .shots img {
+    flex: 0 0 auto; width: min(60vw, 15rem); height: auto;
+    border-radius: 1rem; scroll-snap-align: center;
+    box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.18);
+  }
+  section { padding: 1.5rem 0; }
+  h2 { font-size: 1.6rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .35rem; }
+  .grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .8rem; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0; color: var(--muted); }
+  details {
+    border-top: 1px solid var(--rule); padding: .9rem 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  footer {
+    margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font: .9rem system-ui, sans-serif; color: var(--muted);
+  }
+  footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
+  .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
+  .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
+  .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
+  .policy hr { border: 0; border-top: 1px solid var(--rule); margin: 4rem 0 3rem; }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap top">
+<a class="brand" href="../../es/"><img src="../../img/icon-512.png" alt="" width="40" height="40">Guilty Hour</a>
+<a href="../../how-to-solve-murder-sudoku/" hreflang="en" lang="en">English</a>
+</div></div>
+<main class="article">
+
+<h1>Cómo resolver un sudoku de crímenes, paso a paso</h1>
+<p class="lede">En La Escena tienes el plano de una casa, unos cuantos
+sospechosos y un puñado de pistas. Hay que colocar a cada uno donde estaba, y
+quien acabe a solas con el cuerpo es el culpable. Aquí van las reglas y un caso
+real resuelto entero.</p>
+
+<h2>Las reglas</h2>
+<ul>
+<li>Cada sospechoso ocupa una casilla del plano.</li>
+<li><strong>Uno por fila y uno por columna.</strong> Con cuatro sospechosos en
+un plano de cuatro por cuatro, cada fila y cada columna tiene exactamente a una
+persona.</li>
+<li><strong>Uno por sala:</strong> nunca hay dos personas en la misma
+habitación.</li>
+<li>Los muebles ocupan su casilla: encima de un mueble no hay nadie.</li>
+<li>El asesino es quien estaba a solas con la víctima, es decir, la única
+persona en la sala del cuerpo.</li>
+</ul>
+
+<h2>Qué dicen las pistas</h2>
+<ul>
+<li>«Estaba en la cocina» o «no estaba en la capilla» hablan de la sala
+entera.</li>
+<li>«Estaba en la misma fila que el sacacorchos» habla de esa fila, sin contar
+la casilla del mueble.</li>
+<li>«Estaba cerca del olivo» son las casillas de al lado del mueble, pero solo
+dentro de su sala: las paredes cortan.</li>
+<li>«Estaba en algún punto de la columna D» es exactamente eso.</li>
+</ul>
+<p>En la app, toca una pista y el plano ilumina las casillas de las que
+habla.</p>
+
+<h2>Un caso real: la noche de la vendimia</h2>
+<p>El caso diario del 21 de septiembre de 2026, de dificultad fácil.
+La noche de la vendimia en la finca Solana acaba con las prensas aún en marcha y la dueña de la finca Amalia muerta entre las barricas.</p>
+<figure><svg viewBox="0 0 286 286" role="img" aria-label="El plano del caso, sin nadie colocado" xmlns="http://www.w3.org/2000/svg" class="plan"><rect x="26" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="90" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="26" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="26" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="90" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="90" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="90" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="90" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="154" y="154" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="154" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="218" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="154" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="218" width="64" height="64" fill="#D7C3DA"/><text x="58" y="18" class="axis">A</text><text x="12" y="63" class="axis">1</text><text x="122" y="18" class="axis">B</text><text x="12" y="127" class="axis">2</text><text x="186" y="18" class="axis">C</text><text x="12" y="191" class="axis">3</text><text x="250" y="18" class="axis">D</text><text x="12" y="255" class="axis">4</text><line x1="90" y1="26" x2="90" y2="90" class="rule"/><line x1="26" y1="90" x2="90" y2="90" class="wall"/><line x1="154" y1="26" x2="154" y2="90" class="wall"/><line x1="90" y1="90" x2="154" y2="90" class="rule"/><line x1="218" y1="26" x2="218" y2="90" class="wall"/><line x1="154" y1="90" x2="218" y2="90" class="rule"/><line x1="218" y1="90" x2="282" y2="90" class="rule"/><line x1="90" y1="90" x2="90" y2="154" class="wall"/><line x1="26" y1="154" x2="90" y2="154" class="rule"/><line x1="154" y1="90" x2="154" y2="154" class="wall"/><line x1="90" y1="154" x2="154" y2="154" class="wall"/><line x1="218" y1="90" x2="218" y2="154" class="wall"/><line x1="154" y1="154" x2="218" y2="154" class="rule"/><line x1="218" y1="154" x2="282" y2="154" class="rule"/><line x1="90" y1="154" x2="90" y2="218" class="rule"/><line x1="26" y1="218" x2="90" y2="218" class="rule"/><line x1="154" y1="154" x2="154" y2="218" class="wall"/><line x1="90" y1="218" x2="154" y2="218" class="wall"/><line x1="218" y1="154" x2="218" y2="218" class="wall"/><line x1="154" y1="218" x2="218" y2="218" class="rule"/><line x1="218" y1="218" x2="282" y2="218" class="rule"/><line x1="90" y1="218" x2="90" y2="282" class="wall"/><line x1="154" y1="218" x2="154" y2="282" class="rule"/><line x1="218" y1="218" x2="218" y2="282" class="wall"/><rect x="26" y="26" width="256" height="256" class="outline"/><g><title>rueda</title><rect x="111" y="47" width="22" height="22" rx="4" transform="rotate(45 122 58)" class="furniture"/></g><g><title>sacacorchos</title><rect x="47" y="111" width="22" height="22" rx="4" transform="rotate(45 58 122)" class="furniture"/></g><g><title>mapa</title><rect x="239" y="175" width="22" height="22" rx="4" transform="rotate(45 250 186)" class="furniture"/></g><g><title>olivo</title><rect x="175" y="239" width="22" height="22" rx="4" transform="rotate(45 186 250)" class="furniture"/></g><g class="victim"><title>la dueña de la finca Amalia</title><line x1="172" y1="44" x2="200" y2="72"/><line x1="200" y1="44" x2="172" y2="72"/></g></svg><ul class="legend"><li><span class="swatch" style="background:#E6D9BD"></span>Sala de prensado</li><li><span class="swatch" style="background:#B9CCC4"></span>Cocina</li><li><span class="swatch" style="background:#D7C3DA"></span>Sala de catas</li><li><span class="swatch" style="background:#BFCFE4"></span>Capilla</li><li><span class="diamond"></span>B1 rueda</li><li><span class="diamond"></span>A2 sacacorchos</li><li><span class="diamond"></span>D3 mapa</li><li><span class="diamond"></span>C4 olivo</li><li><span class="cross">✕</span>C1 el cuerpo</li></ul></figure>
+<p>Los sospechosos:</p>
+<ul><li><strong>Iris</strong>, la sumiller</li><li><strong>Crespo</strong>, el maestro bodeguero</li><li><strong>Duarte</strong>, el sobrino</li><li><strong>Paloma</strong>, la cocinera</li></ul>
+<p>Las pistas:</p>
+<ol><li>Duarte no estaba cerca del sacacorchos.</li><li>Crespo estaba en la misma fila que el sacacorchos.</li><li>Crespo no estaba en la misma columna que la rueda.</li><li>Iris no estaba en la capilla.</li><li>Paloma estaba en algún punto de la columna D.</li></ol>
+
+<h2>Paso a paso</h2>
+<ol class="steps">
+<li><strong>Empieza por la pista más cerrada.</strong> Crespo estaba en la
+misma fila que el sacacorchos, que está en A2. Así que Crespo está en la fila
+2: en B2, en C2 o en D2.</li>
+<li>Crespo no estaba en la misma columna que la rueda, que está en B1. Fuera
+B2: le quedan C2 y D2.</li>
+<li>Paloma estaba en algún punto de la columna D. Como en cada columna solo cabe
+una persona, la columna D es de Paloma y Crespo no puede estar en D2.
+<strong>Crespo está en C2.</strong></li>
+<li>C2 es la cocina, y en la cocina está el cuerpo. Como en cada sala solo hay
+una persona, ya sabes quién estaba a solas con la víctima. Aun así, termina el
+plano: la acusación solo vale si todo cuadra.</li>
+<li>Quedan Iris y Duarte, y las columnas A y B. En la columna B, B1 es la rueda
+y B4 es cocina, que ya tiene a Crespo: solo queda B3. En la columna A, A2 es el
+sacacorchos, y A3 y A4 son de la capilla, igual que B3. En la capilla solo cabe
+uno, así que quien vaya a la columna A tiene que ir a A1.</li>
+<li>Iris no estaba en la capilla, así que no puede ir a B3. <strong>Iris está en
+A1 y Duarte en B3.</strong></li>
+<li>Las filas 1, 2 y 3 ya están ocupadas, así que <strong>Paloma está en
+D4</strong>.</li>
+</ol>
+<figure><svg viewBox="0 0 286 286" role="img" aria-label="El plano resuelto" xmlns="http://www.w3.org/2000/svg" class="plan"><rect x="26" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="90" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="26" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="26" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="90" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="90" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="90" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="90" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="154" y="154" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="154" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="218" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="154" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="218" width="64" height="64" fill="#D7C3DA"/><text x="58" y="18" class="axis">A</text><text x="12" y="63" class="axis">1</text><text x="122" y="18" class="axis">B</text><text x="12" y="127" class="axis">2</text><text x="186" y="18" class="axis">C</text><text x="12" y="191" class="axis">3</text><text x="250" y="18" class="axis">D</text><text x="12" y="255" class="axis">4</text><line x1="90" y1="26" x2="90" y2="90" class="rule"/><line x1="26" y1="90" x2="90" y2="90" class="wall"/><line x1="154" y1="26" x2="154" y2="90" class="wall"/><line x1="90" y1="90" x2="154" y2="90" class="rule"/><line x1="218" y1="26" x2="218" y2="90" class="wall"/><line x1="154" y1="90" x2="218" y2="90" class="rule"/><line x1="218" y1="90" x2="282" y2="90" class="rule"/><line x1="90" y1="90" x2="90" y2="154" class="wall"/><line x1="26" y1="154" x2="90" y2="154" class="rule"/><line x1="154" y1="90" x2="154" y2="154" class="wall"/><line x1="90" y1="154" x2="154" y2="154" class="wall"/><line x1="218" y1="90" x2="218" y2="154" class="wall"/><line x1="154" y1="154" x2="218" y2="154" class="rule"/><line x1="218" y1="154" x2="282" y2="154" class="rule"/><line x1="90" y1="154" x2="90" y2="218" class="rule"/><line x1="26" y1="218" x2="90" y2="218" class="rule"/><line x1="154" y1="154" x2="154" y2="218" class="wall"/><line x1="90" y1="218" x2="154" y2="218" class="wall"/><line x1="218" y1="154" x2="218" y2="218" class="wall"/><line x1="154" y1="218" x2="218" y2="218" class="rule"/><line x1="218" y1="218" x2="282" y2="218" class="rule"/><line x1="90" y1="218" x2="90" y2="282" class="wall"/><line x1="154" y1="218" x2="154" y2="282" class="rule"/><line x1="218" y1="218" x2="218" y2="282" class="wall"/><rect x="26" y="26" width="256" height="256" class="outline"/><g><title>rueda</title><rect x="111" y="47" width="22" height="22" rx="4" transform="rotate(45 122 58)" class="furniture"/></g><g><title>sacacorchos</title><rect x="47" y="111" width="22" height="22" rx="4" transform="rotate(45 58 122)" class="furniture"/></g><g><title>mapa</title><rect x="239" y="175" width="22" height="22" rx="4" transform="rotate(45 250 186)" class="furniture"/></g><g><title>olivo</title><rect x="175" y="239" width="22" height="22" rx="4" transform="rotate(45 186 250)" class="furniture"/></g><g class="victim"><title>la dueña de la finca Amalia</title><line x1="172" y1="44" x2="200" y2="72"/><line x1="200" y1="44" x2="172" y2="72"/></g><g><title>Crespo</title><circle cx="186" cy="122" r="22" fill="#2E86C1"/><text x="186" y="129" class="pawn">C</text></g><g><title>Duarte</title><circle cx="122" cy="186" r="22" fill="#117A65"/><text x="122" y="193" class="pawn">D</text></g><g><title>Iris</title><circle cx="58" cy="58" r="22" fill="#8E44AD"/><text x="58" y="65" class="pawn">I</text></g><g><title>Paloma</title><circle cx="250" cy="250" r="22" fill="#CA6F1E"/><text x="250" y="257" class="pawn">P</text></g></svg></figure>
+<p>Crespo, el maestro bodeguero, estaba a solas con la dueña de la finca en la
+cocina. <strong>Culpable.</strong></p>
+<p>¿Y la pista de Duarte? «Duarte no estaba cerca del sacacorchos» no ha hecho
+falta por este camino. Pasa a menudo: una pista que sobra en un razonamiento es
+la clave de otro. Si te atascas, repasa las que todavía no has usado.</p>
+
+<h2>El modo detective</h2>
+<p>Viene activado: el cuerpo no aparece en el plano hasta que has colocado a
+todos, y su casilla cuenta como una más. Poner a alguien encima es,
+sencillamente, una colocación equivocada. El razonamiento es el mismo: al final
+el cuerpo aparece y dice quién estaba con él.</p>
+
+<h2>Trucos</h2>
+<ul>
+<li>Empieza por las pistas que dicen dónde estaba alguien, no dónde no
+estaba.</li>
+<li>Cuenta huecos: si en una fila, una columna o una sala solo hay una casilla
+posible para alguien, es suya.</li>
+<li>Usa el lápiz: elige a un sospechoso y mantén pulsada una casilla para
+descartarla.</li>
+<li>Tienes tres comprobaciones gratis al día para saber si vas bien.</li>
+</ul>
+
+<div class="next"><strong>Juega el caso de hoy</strong><p>Dos casos nuevos cada día, los mismos para todos. Gratis y sin anuncios obligatorios.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es">Descárgalo en Google Play</a></div>
+</main>
+<footer><div class="wrap">
+<a href="../../es/">Guilty Hour</a> · <a href="../../privacy/">Política de privacidad</a> ·
+<a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+</div></footer>
+</body>
+</html>

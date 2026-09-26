@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to solve The Interrogation: who, where and why</title>
+<meta name="description" content="The rules of The Interrogation in Guilty Hour and a real case solved clue by clue: how to cross-check what the witnesses say to find who did it.">
+<link rel="canonical" href="https://guiltyhour.github.io/how-to-solve-the-interrogation/">
+<link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/how-to-solve-the-interrogation/">
+<link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/">
+<link rel="icon" href="../img/icon-512.png">
+<meta name="theme-color" content="#C8102E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to solve The Interrogation: who, where and why">
+<meta property="og:description" content="The rules of The Interrogation in Guilty Hour and a real case solved clue by clue: how to cross-check what the witnesses say to find who did it.">
+<meta property="og:url" content="https://guiltyhour.github.io/how-to-solve-the-interrogation/">
+<meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to solve The Interrogation: who, where and why", "description": "The rules of The Interrogation in Guilty Hour and a real case solved clue by clue: how to cross-check what the witnesses say to find who did it.", "inLanguage": "en", "url": "https://guiltyhour.github.io/how-to-solve-the-interrogation/", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26"}</script>
+<style>
+  :root {
+    color-scheme: light dark;
+    --verdict: #C8102E; --verdict-deep: #6B0F1A; --on-verdict: #FFFFFF;
+    --ink: #14110F; --paper: #F4F1EA; --card: #FFFFFF; --rule: #DDD6C8;
+    --muted: #5A534A; --link: #9E0D24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdict: #A50D26; --verdict-deep: #4A0A12;
+      --ink: #ECE7DE; --paper: #16181C; --card: #1F2227; --rule: #33363D;
+      --muted: #A9A298; --link: #F07A8C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+  header.hero { background: var(--verdict); color: var(--on-verdict); }
+  header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    font: .95rem system-ui, sans-serif;
+  }
+  .top a { color: var(--on-verdict); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+  .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08;
+    margin: 2.5rem 0 1rem; max-width: 16ch;
+  }
+  .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .cta {
+    display: inline-block; background: var(--on-verdict); color: #14110F;
+    padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
+    font: 700 1rem system-ui, sans-serif;
+  }
+  .soon { font: .9rem system-ui, sans-serif; opacity: .85; margin-top: .8rem; }
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2rem 1rem; margin: 0 auto; max-width: 60rem;
+  }
+  .shots img {
+    flex: 0 0 auto; width: min(60vw, 15rem); height: auto;
+    border-radius: 1rem; scroll-snap-align: center;
+    box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.18);
+  }
+  section { padding: 1.5rem 0; }
+  h2 { font-size: 1.6rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .35rem; }
+  .grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .8rem; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0; color: var(--muted); }
+  details {
+    border-top: 1px solid var(--rule); padding: .9rem 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  footer {
+    margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font: .9rem system-ui, sans-serif; color: var(--muted);
+  }
+  footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
+  .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
+  .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
+  .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
+  .policy hr { border: 0; border-top: 1px solid var(--rule); margin: 4rem 0 3rem; }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap top">
+<a class="brand" href="../"><img src="../img/icon-512.png" alt="" width="40" height="40">Guilty Hour</a>
+<a href="../es/como-resolver-el-interrogatorio/" hreflang="es" lang="es">Español</a>
+</div></div>
+<main class="article">
+
+<h1>How to solve The Interrogation</h1>
+<p class="lede">The Interrogation has no floor plan. There is a crime, a few
+suspects and what the witnesses say. Every suspect was somewhere, had a motive
+and, in the longer cases, carried a weapon. Your job is to work out what belongs
+to whom.</p>
+
+<h2>The rules</h2>
+<ul>
+<li>Every suspect has exactly one of each: one place, one motive, one
+weapon.</li>
+<li>Nobody shares: if Moss was in the ticket office, nobody else was.</li>
+<li>The case opens with one fact you already know, such as where the crime
+happened or which weapon was used. The killer is whoever fits that fact.</li>
+</ul>
+
+<h2>A real case: the night express</h2>
+<p>The daily case from 22 September 2026, rated easy. On the night express,
+the arms dealer Krantz has been found dead. We know the crime happened in the vestibule. The
+suspects are Zara, Anna, Moss and Steele. The places: the vestibule, the smoking
+lounge, the ticket office and the sleeping car. The motives: greed, obsession,
+jealousy and heartbreak.</p>
+<p>The clues:</p>
+<ol><li>Whoever was in the vestibule did it out of jealousy.</li><li>Whoever was in the sleeping car did not do it out of obsession.</li><li>Anna never set foot in the vestibule.</li><li>Steele did it out of obsession.</li><li>Moss did it out of heartbreak.</li><li>Whoever was in the ticket office did it out of heartbreak.</li></ol>
+
+<h2>Clue by clue</h2>
+<ol class="steps">
+<li><strong>Direct clues first.</strong> Steele did it out of obsession and Moss
+out of heartbreak. That leaves greed and jealousy for Zara and Anna.</li>
+<li>Whoever was in the ticket office did it out of heartbreak, and heartbreak is
+Moss's. <strong>Moss was in the ticket office.</strong></li>
+<li>Whoever was in the vestibule did it out of jealousy. Anna never set foot in
+the vestibule, so jealousy is not hers: <strong>Anna acted out of greed and Zara
+out of jealousy</strong>. And whoever had the jealousy was in the vestibule:
+Zara.</li>
+<li>The crime happened in the vestibule, and Zara was in the vestibule.
+<strong>Zara is guilty.</strong></li>
+<li>To close the file: Anna and Steele are left with the smoking lounge and the
+sleeping car. Whoever was in the sleeping car did not do it out of obsession,
+and obsession is Steele's. <strong>Steele was in the smoking lounge and Anna in
+the sleeping car.</strong></li>
+</ol>
+
+<h2>Tips</h2>
+<ul>
+<li>Clues that tie two things together without naming anyone ("whoever was in
+the ticket office did it out of heartbreak") are the most valuable: as soon as
+you know one half, you know the other.</li>
+<li>Cross-check clues against each other. One about places and one about motives
+often point at a single person together.</li>
+<li>In the app, once you confirm something belongs to someone, their other
+options are ruled out for you.</li>
+<li>Tap a clue and the app shows you what it refers to.</li>
+</ul>
+
+<div class="next"><strong>Play today&#x27;s case</strong><p>Two new cases every day, the same for everyone. Free, with no forced adverts.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en">Get it on Google Play</a></div>
+</main>
+<footer><div class="wrap">
+<a href="../">Guilty Hour</a> · <a href="../privacy/">Privacy policy</a> ·
+<a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+</div></footer>
+</body>
+</html>

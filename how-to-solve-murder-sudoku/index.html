@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to solve a murder sudoku, step by step</title>
+<meta name="description" content="The rules of The Scene in Guilty Hour and a real case solved from start to finish: rows, columns and rooms to find the killer.">
+<link rel="canonical" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
+<link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
+<link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
+<link rel="icon" href="../img/icon-512.png">
+<meta name="theme-color" content="#C8102E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to solve a murder sudoku, step by step">
+<meta property="og:description" content="The rules of The Scene in Guilty Hour and a real case solved from start to finish: rows, columns and rooms to find the killer.">
+<meta property="og:url" content="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
+<meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to solve a murder sudoku, step by step", "description": "The rules of The Scene in Guilty Hour and a real case solved from start to finish: rows, columns and rooms to find the killer.", "inLanguage": "en", "url": "https://guiltyhour.github.io/how-to-solve-murder-sudoku/", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26"}</script>
+<style>
+  :root {
+    color-scheme: light dark;
+    --verdict: #C8102E; --verdict-deep: #6B0F1A; --on-verdict: #FFFFFF;
+    --ink: #14110F; --paper: #F4F1EA; --card: #FFFFFF; --rule: #DDD6C8;
+    --muted: #5A534A; --link: #9E0D24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdict: #A50D26; --verdict-deep: #4A0A12;
+      --ink: #ECE7DE; --paper: #16181C; --card: #1F2227; --rule: #33363D;
+      --muted: #A9A298; --link: #F07A8C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+  header.hero { background: var(--verdict); color: var(--on-verdict); }
+  header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    font: .95rem system-ui, sans-serif;
+  }
+  .top a { color: var(--on-verdict); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+  .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08;
+    margin: 2.5rem 0 1rem; max-width: 16ch;
+  }
+  .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .cta {
+    display: inline-block; background: var(--on-verdict); color: #14110F;
+    padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
+    font: 700 1rem system-ui, sans-serif;
+  }
+  .soon { font: .9rem system-ui, sans-serif; opacity: .85; margin-top: .8rem; }
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2rem 1rem; margin: 0 auto; max-width: 60rem;
+  }
+  .shots img {
+    flex: 0 0 auto; width: min(60vw, 15rem); height: auto;
+    border-radius: 1rem; scroll-snap-align: center;
+    box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.18);
+  }
+  section { padding: 1.5rem 0; }
+  h2 { font-size: 1.6rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .35rem; }
+  .grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .8rem; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0; color: var(--muted); }
+  details {
+    border-top: 1px solid var(--rule); padding: .9rem 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  footer {
+    margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font: .9rem system-ui, sans-serif; color: var(--muted);
+  }
+  footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
+  .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
+  .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
+  .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
+  .policy hr { border: 0; border-top: 1px solid var(--rule); margin: 4rem 0 3rem; }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap top">
+<a class="brand" href="../"><img src="../img/icon-512.png" alt="" width="40" height="40">Guilty Hour</a>
+<a href="../es/como-resolver-un-sudoku-de-crimenes/" hreflang="es" lang="es">Español</a>
+</div></div>
+<main class="article">
+
+<h1>How to solve a murder sudoku, step by step</h1>
+<p class="lede">In The Scene you get the floor plan of a house, a few suspects
+and a handful of clues. You place everyone where they stood, and whoever ends up
+alone with the body is guilty. Here are the rules and a real case, solved all the
+way through.</p>
+
+<h2>The rules</h2>
+<ul>
+<li>Every suspect stands on one square of the plan.</li>
+<li><strong>One per row and one per column.</strong> With four suspects on a
+four-by-four plan, every row and every column holds exactly one person.</li>
+<li><strong>One per room:</strong> two people are never in the same room.</li>
+<li>Furniture takes up its square: nobody stands on it.</li>
+<li>The killer is whoever was alone with the victim, meaning the only person in
+the room with the body.</li>
+</ul>
+
+<h2>What the clues mean</h2>
+<ul>
+<li>"Was in the kitchen" or "was not in the chapel" is about the whole
+room.</li>
+<li>"Was in the same row as the corkscrew" is that row, not counting the
+furniture's own square.</li>
+<li>"Was near the olive tree" means the squares next to it, but only inside its
+room: walls cut it off.</li>
+<li>"Was somewhere in column D" is exactly that.</li>
+</ul>
+<p>In the app, tap a clue and the plan lights up the squares it talks
+about.</p>
+
+<h2>A real case: harvest night</h2>
+<p>The daily case from 21 September 2026, rated easy. Harvest night at the Solana estate ends with the presses still running and the estate owner Amelia dead among the barrels.</p>
+<figure><svg viewBox="0 0 286 286" role="img" aria-label="The floor plan, with nobody placed yet" xmlns="http://www.w3.org/2000/svg" class="plan"><rect x="26" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="90" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="26" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="26" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="90" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="90" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="90" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="90" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="154" y="154" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="154" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="218" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="154" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="218" width="64" height="64" fill="#D7C3DA"/><text x="58" y="18" class="axis">A</text><text x="12" y="63" class="axis">1</text><text x="122" y="18" class="axis">B</text><text x="12" y="127" class="axis">2</text><text x="186" y="18" class="axis">C</text><text x="12" y="191" class="axis">3</text><text x="250" y="18" class="axis">D</text><text x="12" y="255" class="axis">4</text><line x1="90" y1="26" x2="90" y2="90" class="rule"/><line x1="26" y1="90" x2="90" y2="90" class="wall"/><line x1="154" y1="26" x2="154" y2="90" class="wall"/><line x1="90" y1="90" x2="154" y2="90" class="rule"/><line x1="218" y1="26" x2="218" y2="90" class="wall"/><line x1="154" y1="90" x2="218" y2="90" class="rule"/><line x1="218" y1="90" x2="282" y2="90" class="rule"/><line x1="90" y1="90" x2="90" y2="154" class="wall"/><line x1="26" y1="154" x2="90" y2="154" class="rule"/><line x1="154" y1="90" x2="154" y2="154" class="wall"/><line x1="90" y1="154" x2="154" y2="154" class="wall"/><line x1="218" y1="90" x2="218" y2="154" class="wall"/><line x1="154" y1="154" x2="218" y2="154" class="rule"/><line x1="218" y1="154" x2="282" y2="154" class="rule"/><line x1="90" y1="154" x2="90" y2="218" class="rule"/><line x1="26" y1="218" x2="90" y2="218" class="rule"/><line x1="154" y1="154" x2="154" y2="218" class="wall"/><line x1="90" y1="218" x2="154" y2="218" class="wall"/><line x1="218" y1="154" x2="218" y2="218" class="wall"/><line x1="154" y1="218" x2="218" y2="218" class="rule"/><line x1="218" y1="218" x2="282" y2="218" class="rule"/><line x1="90" y1="218" x2="90" y2="282" class="wall"/><line x1="154" y1="218" x2="154" y2="282" class="rule"/><line x1="218" y1="218" x2="218" y2="282" class="wall"/><rect x="26" y="26" width="256" height="256" class="outline"/><g><title>old press wheel</title><rect x="111" y="47" width="22" height="22" rx="4" transform="rotate(45 122 58)" class="furniture"/></g><g><title>giant corkscrew</title><rect x="47" y="111" width="22" height="22" rx="4" transform="rotate(45 58 122)" class="furniture"/></g><g><title>framed estate map</title><rect x="239" y="175" width="22" height="22" rx="4" transform="rotate(45 250 186)" class="furniture"/></g><g><title>potted olive tree</title><rect x="175" y="239" width="22" height="22" rx="4" transform="rotate(45 186 250)" class="furniture"/></g><g class="victim"><title>the estate owner Amelia</title><line x1="172" y1="44" x2="200" y2="72"/><line x1="200" y1="44" x2="172" y2="72"/></g></svg><ul class="legend"><li><span class="swatch" style="background:#E6D9BD"></span>Press Room</li><li><span class="swatch" style="background:#B9CCC4"></span>Kitchen</li><li><span class="swatch" style="background:#D7C3DA"></span>Tasting Room</li><li><span class="swatch" style="background:#BFCFE4"></span>Chapel</li><li><span class="diamond"></span>B1 old press wheel</li><li><span class="diamond"></span>A2 giant corkscrew</li><li><span class="diamond"></span>D3 framed estate map</li><li><span class="diamond"></span>C4 potted olive tree</li><li><span class="cross">✕</span>C1 the body</li></ul></figure>
+<p>The suspects:</p>
+<ul><li><strong>Iris</strong>, the sommelier</li><li><strong>Crisp</strong>, the cellar master</li><li><strong>Rupert</strong>, the nephew</li><li><strong>Dove</strong>, the cook</li></ul>
+<p>The clues:</p>
+<ol><li>Rupert was nowhere near the giant corkscrew.</li><li>Crisp was in the same row as the giant corkscrew.</li><li>Crisp was not in the same column as the old press wheel.</li><li>Iris was not in the Chapel.</li><li>Dove was somewhere in column D.</li></ol>
+
+<h2>Step by step</h2>
+<ol class="steps">
+<li><strong>Start with the tightest clue.</strong> Crisp was in the same row as
+the giant corkscrew, which is on A2. So Crisp is in row 2: B2, C2 or D2.</li>
+<li>Crisp was not in the same column as the old press wheel, on B1. B2 is out,
+which leaves C2 and D2.</li>
+<li>Dove was somewhere in column D. Only one person fits in a column, so column D
+belongs to Dove and Crisp cannot be on D2. <strong>Crisp is on C2.</strong></li>
+<li>C2 is the kitchen, and the body is in the kitchen. With one person per room,
+you already know who was alone with the victim. Finish the plan anyway: an
+accusation only stands if everything fits.</li>
+<li>Iris and Rupert are left, with columns A and B. In column B, B1 is the press
+wheel and B4 is kitchen, which already has Crisp: only B3 remains. In column A,
+A2 is the corkscrew, and A3 and A4 are chapel, like B3. Only one person fits in
+the chapel, so whoever takes column A has to be on A1.</li>
+<li>Iris was not in the chapel, so she cannot be on B3. <strong>Iris is on A1 and
+Rupert on B3.</strong></li>
+<li>Rows 1, 2 and 3 are taken, so <strong>Dove is on D4</strong>.</li>
+</ol>
+<figure><svg viewBox="0 0 286 286" role="img" aria-label="The solved floor plan" xmlns="http://www.w3.org/2000/svg" class="plan"><rect x="26" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="90" y="26" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="26" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="26" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="90" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="90" width="64" height="64" fill="#E6D9BD"/><rect x="154" y="90" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="90" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="154" width="64" height="64" fill="#BFCFE4"/><rect x="154" y="154" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="154" width="64" height="64" fill="#D7C3DA"/><rect x="26" y="218" width="64" height="64" fill="#BFCFE4"/><rect x="90" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="154" y="218" width="64" height="64" fill="#B9CCC4"/><rect x="218" y="218" width="64" height="64" fill="#D7C3DA"/><text x="58" y="18" class="axis">A</text><text x="12" y="63" class="axis">1</text><text x="122" y="18" class="axis">B</text><text x="12" y="127" class="axis">2</text><text x="186" y="18" class="axis">C</text><text x="12" y="191" class="axis">3</text><text x="250" y="18" class="axis">D</text><text x="12" y="255" class="axis">4</text><line x1="90" y1="26" x2="90" y2="90" class="rule"/><line x1="26" y1="90" x2="90" y2="90" class="wall"/><line x1="154" y1="26" x2="154" y2="90" class="wall"/><line x1="90" y1="90" x2="154" y2="90" class="rule"/><line x1="218" y1="26" x2="218" y2="90" class="wall"/><line x1="154" y1="90" x2="218" y2="90" class="rule"/><line x1="218" y1="90" x2="282" y2="90" class="rule"/><line x1="90" y1="90" x2="90" y2="154" class="wall"/><line x1="26" y1="154" x2="90" y2="154" class="rule"/><line x1="154" y1="90" x2="154" y2="154" class="wall"/><line x1="90" y1="154" x2="154" y2="154" class="wall"/><line x1="218" y1="90" x2="218" y2="154" class="wall"/><line x1="154" y1="154" x2="218" y2="154" class="rule"/><line x1="218" y1="154" x2="282" y2="154" class="rule"/><line x1="90" y1="154" x2="90" y2="218" class="rule"/><line x1="26" y1="218" x2="90" y2="218" class="rule"/><line x1="154" y1="154" x2="154" y2="218" class="wall"/><line x1="90" y1="218" x2="154" y2="218" class="wall"/><line x1="218" y1="154" x2="218" y2="218" class="wall"/><line x1="154" y1="218" x2="218" y2="218" class="rule"/><line x1="218" y1="218" x2="282" y2="218" class="rule"/><line x1="90" y1="218" x2="90" y2="282" class="wall"/><line x1="154" y1="218" x2="154" y2="282" class="rule"/><line x1="218" y1="218" x2="218" y2="282" class="wall"/><rect x="26" y="26" width="256" height="256" class="outline"/><g><title>old press wheel</title><rect x="111" y="47" width="22" height="22" rx="4" transform="rotate(45 122 58)" class="furniture"/></g><g><title>giant corkscrew</title><rect x="47" y="111" width="22" height="22" rx="4" transform="rotate(45 58 122)" class="furniture"/></g><g><title>framed estate map</title><rect x="239" y="175" width="22" height="22" rx="4" transform="rotate(45 250 186)" class="furniture"/></g><g><title>potted olive tree</title><rect x="175" y="239" width="22" height="22" rx="4" transform="rotate(45 186 250)" class="furniture"/></g><g class="victim"><title>the estate owner Amelia</title><line x1="172" y1="44" x2="200" y2="72"/><line x1="200" y1="44" x2="172" y2="72"/></g><g><title>Crisp</title><circle cx="186" cy="122" r="22" fill="#2E86C1"/><text x="186" y="129" class="pawn">C</text></g><g><title>Rupert</title><circle cx="122" cy="186" r="22" fill="#117A65"/><text x="122" y="193" class="pawn">R</text></g><g><title>Iris</title><circle cx="58" cy="58" r="22" fill="#8E44AD"/><text x="58" y="65" class="pawn">I</text></g><g><title>Dove</title><circle cx="250" cy="250" r="22" fill="#CA6F1E"/><text x="250" y="257" class="pawn">D</text></g></svg></figure>
+<p>Crisp, the cellar master, was alone with the estate owner in the kitchen.
+<strong>Guilty.</strong></p>
+<p>What about Rupert's clue? "Rupert was nowhere near the giant corkscrew" was
+not needed on this route. That happens a lot: a clue that is spare in one line of
+reasoning is the key to another. When you are stuck, go back to the ones you have
+not used yet.</p>
+
+<h2>Detective mode</h2>
+<p>It is on by default: the body stays off the plan until you have placed
+everyone, and its square counts like any other. Putting someone on it is simply
+a wrong placement. The reasoning does not change: at the end the body appears and
+tells you who was with it.</p>
+
+<h2>Tips</h2>
+<ul>
+<li>Start with clues that say where someone was, not where they were not.</li>
+<li>Count the gaps: if a row, a column or a room has only one square left for
+someone, it is theirs.</li>
+<li>Use the pencil: pick a suspect and long-press a square to rule it out.</li>
+<li>You get three free checks a day to see whether you are on track.</li>
+</ul>
+
+<div class="next"><strong>Play today&#x27;s case</strong><p>Two new cases every day, the same for everyone. Free, with no forced adverts.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en">Get it on Google Play</a></div>
+</main>
+<footer><div class="wrap">
+<a href="../">Guilty Hour</a> · <a href="../privacy/">Privacy policy</a> ·
+<a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+</div></footer>
+</body>
+</html>
