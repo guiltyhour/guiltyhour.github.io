@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qué es un sudoku de crímenes y en qué se diferencia del sudoku</title>
+<meta name="description" content="El sudoku de crímenes, o sudoku detective, es un puzle de lógica en el que colocas sospechosos en vez de números para descubrir al asesino. Reglas, diferencias con el sudoku y por dónde empezar.">
+<link rel="canonical" href="https://guiltyhour.github.io/es/que-es-un-sudoku-de-crimenes/">
+<link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/que-es-un-sudoku-de-crimenes/">
+<link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/what-is-a-murder-sudoku/">
+<link rel="alternate" hreflang="x-default" href="https://guiltyhour.github.io/what-is-a-murder-sudoku/">
+<link rel="icon" href="https://guiltyhour.github.io/favicon.ico" sizes="48x48">
+<link rel="icon" href="../../img/icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="https://guiltyhour.github.io/apple-touch-icon.png">
+<meta name="theme-color" content="#C8102E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Guilty Hour">
+<meta property="og:title" content="Qué es un sudoku de crímenes y en qué se diferencia del sudoku">
+<meta property="og:description" content="El sudoku de crímenes, o sudoku detective, es un puzle de lógica en el que colocas sospechosos en vez de números para descubrir al asesino. Reglas, diferencias con el sudoku y por dónde empezar.">
+<meta property="og:url" content="https://guiltyhour.github.io/es/que-es-un-sudoku-de-crimenes/">
+<meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
+<meta property="og:image:alt" content="Guilty Hour">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Qué es un sudoku de crímenes y en qué se diferencia del sudoku", "description": "El sudoku de crímenes, o sudoku detective, es un puzle de lógica en el que colocas sospechosos en vez de números para descubrir al asesino. Reglas, diferencias con el sudoku y por dónde empezar.", "inLanguage": "es", "url": "https://guiltyhour.github.io/es/que-es-un-sudoku-de-crimenes/", "mainEntityOfPage": "https://guiltyhour.github.io/es/que-es-un-sudoku-de-crimenes/", "image": "https://guiltyhour.github.io/img/feature-1024x500.png", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/", "logo": "https://guiltyhour.github.io/img/icon-512.png"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26", "dateModified": "2026-10-14"}</script>
+<style>
+  :root {
+    color-scheme: light dark;
+    --verdict: #C8102E; --verdict-deep: #6B0F1A; --on-verdict: #FFFFFF;
+    --ink: #14110F; --paper: #F4F1EA; --card: #FFFFFF; --rule: #DDD6C8;
+    --muted: #5A534A; --link: #9E0D24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdict: #A50D26; --verdict-deep: #4A0A12;
+      --ink: #ECE7DE; --paper: #16181C; --card: #1F2227; --rule: #33363D;
+      --muted: #A9A298; --link: #F07A8C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+  header.hero { background: var(--verdict); color: var(--on-verdict); }
+  header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: .5rem 1rem; font: .95rem system-ui, sans-serif;
+  }
+  .top-links { display: flex; align-items: center; gap: 1rem; }
+  .hero-body { display: grid; gap: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) {
+    .hero-body { grid-template-columns: 1fr auto; }
+  }
+  .hero-shot {
+    width: min(60vw, 15rem); height: auto; border-radius: 1rem;
+    justify-self: center; box-shadow: 0 .6rem 2rem rgba(0,0,0,.35);
+  }
+  .badge { display: inline-block; line-height: 0; }
+  .top a { color: var(--on-verdict); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+  .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08;
+    margin: 2.5rem 0 1rem; max-width: 16ch;
+  }
+  .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .end { margin: 2rem 0; text-align: center; }
+  .end p { color: var(--muted); margin: .3rem 0 1rem; }
+  .card .solve { margin-top: .6rem; }
+  .cta {
+    display: inline-block; background: var(--on-verdict); color: #14110F;
+    padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
+    font: 700 1rem system-ui, sans-serif;
+  }
+  .soon { font: .9rem system-ui, sans-serif; opacity: .85; margin-top: .8rem; }
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2rem 1rem; margin: 0 auto; max-width: 60rem;
+  }
+  .shots img {
+    flex: 0 0 auto; width: min(60vw, 15rem); height: auto;
+    border-radius: 1rem; scroll-snap-align: center;
+    box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.18);
+  }
+  section { padding: 1.5rem 0; }
+  h2 { font-size: 1.6rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .35rem; }
+  .grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .8rem; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0; color: var(--muted); }
+  details {
+    border-top: 1px solid var(--rule); padding: .9rem 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  footer {
+    margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font: .9rem system-ui, sans-serif; color: var(--muted);
+  }
+  footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
+  th, td { text-align: left; vertical-align: top; padding: .5rem .4rem;
+    border-bottom: 1px solid var(--rule); }
+  .quote { font-style: italic; font-size: 1.1rem; }
+  .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
+  .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
+  .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
+  .policy hr { border: 0; border-top: 1px solid var(--rule); margin: 4rem 0 3rem; }
+</style>
+
+</head>
+<body>
+<div class="bar"><div class="wrap top">
+<a class="brand" href="../../es/"><img src="../../img/icon-96.png" alt="" width="40" height="40">Guilty Hour</a>
+<span class="top-links"><a href="../../what-is-a-murder-sudoku/" hreflang="en" lang="en">English</a><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dque-es-un-sudoku-de-crimenes_top"><img src="../../img/play-es.png" alt="Descárgalo en Google Play" width="188" height="56" style="height:2.25rem;width:auto"></a></span>
+</div></div>
+<main class="article">
+
+<h1>Qué es un sudoku de crímenes</h1>
+<p class="lede">Un sudoku de crímenes, también llamado sudoku detective, es un
+puzle de lógica en el que no colocas números sino sospechosos. Cuando todos
+están en su sitio, sabes quién es el asesino.</p>
+
+<h2>Cómo funciona</h2>
+<ul>
+<li>Tienes el plano de un sitio, una casa, un tren o un hotel, dividido en
+cuadrículas y en salas.</li>
+<li>Tienes una lista de sospechosos y unas cuantas pistas escritas: «Nora
+estaba en la cocina», «Teo no estaba en la misma fila que el piano».</li>
+<li>Hay que colocar a cada sospechoso en una casilla: <strong>uno por fila, uno
+por columna y uno por sala</strong>. Nadie está encima de un mueble, salvo
+sentado en un asiento.</li>
+<li>Con el plano completo aparece la víctima. Quien estaba a solas con ella, en
+su misma sala, es el culpable.</li>
+</ul>
+
+<h2>En qué se parece al sudoku y en qué no</h2>
+<table>
+<tr><th></th><th>Sudoku</th><th>Sudoku de crímenes</th></tr>
+<tr><td>Qué colocas</td><td>Números del 1 al 9</td><td>Sospechosos</td></tr>
+<tr><td>Tablero</td><td>9×9, siempre</td><td>De 5×5 a 12×12 en Guilty
+Hour</td></tr>
+<tr><td>La regla</td><td>Cada número una vez por fila, columna y caja</td>
+<td>Una persona por fila, columna y sala</td></tr>
+<tr><td>Qué te dan</td><td>Algunos números ya puestos</td><td>Pistas
+escritas</td></tr>
+<tr><td>Al terminar</td><td>Un tablero lleno</td><td>Un tablero lleno y un
+culpable</td></tr>
+</table>
+<p>La lógica es la misma: descartar lo que no puede ser hasta que solo queda
+una opción. La diferencia es que aquí cada deducción cuenta una historia.</p>
+
+<h2>Una sola solución, sin adivinar</h2>
+<p>Un buen sudoku de crímenes tiene una única solución y se resuelve sin
+adivinar. En Guilty Hour cada caso lo comprueba un programa antes de
+publicarse: solo una colocación cumple todas las pistas, y se llega a ella
+razonando. Ni siquiera hace falta saber dónde está el cuerpo: aparece al
+final.</p>
+
+<h2>¿Es lo mismo que el sudoku asesino?</h2>
+<p>No. El «sudoku asesino» o <em>killer sudoku</em> es un sudoku de números con
+sumas: grupos de casillas cuyo total tiene que dar una cifra. No hay
+sospechosos ni crímenes. El sudoku de crímenes no usa números para nada.</p>
+
+<h2>El otro modo: El Interrogatorio</h2>
+<p>Guilty Hour tiene un segundo tipo de caso. En El Interrogatorio no hay
+plano: cada sospechoso estaba en un sitio, tenía un motivo y a veces un arma, y
+hay que cruzar lo que dicen las pistas para saber quién fue, dónde y por qué.
+<a href="/es/como-resolver-el-interrogatorio/">Cómo se resuelve</a>.</p>
+
+<h2>Por dónde empezar</h2>
+<ul>
+<li><a href="/es/sudoku-de-crimenes-online/">Juega un caso en el navegador</a>,
+gratis.</li>
+<li><a href="/es/como-resolver-un-sudoku-de-crimenes/">Un caso resuelto paso a
+paso</a>.</li>
+<li><a href="/es/pistas-del-sudoku-de-crimenes/">Qué significa cada
+pista</a>.</li>
+</ul>
+
+<div class="next"><strong>Juega el caso de hoy</strong><p>Dos casos nuevos cada día, los mismos para todos. Gratis y sin anuncios obligatorios.</p><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dque-es-un-sudoku-de-crimenes_end"><img src="../../img/play-es.png" alt="Descárgalo en Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a></div>
+<h2>Más guías</h2><ul><li><a href="../../es/como-resolver-un-sudoku-de-crimenes/">Cómo resolver un sudoku de crímenes, paso a paso</a></li><li><a href="../../es/como-resolver-el-interrogatorio/">Cómo resolver El Interrogatorio</a></li><li><a href="../../es/sudoku-de-crimenes-online/">Juega un sudoku de crímenes online, gratis</a></li><li><a href="../../es/pistas-del-sudoku-de-crimenes/">Las pistas del sudoku de crímenes, una a una</a></li></ul>
+</main>
+<footer><div class="wrap">
+<a href="../../es/">Guilty Hour</a> · <a href="../../privacy/">Política de privacidad</a> ·
+<a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+<p>Google Play y el logotipo de Google Play son marcas de Google LLC.</p>
+</div></footer>
+</body>
+</html>
