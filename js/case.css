@@ -11,10 +11,28 @@
   background: #F4F1EA; border-radius: .8rem; overflow: hidden;
   box-shadow: 0 .3rem 1.2rem rgba(0,0,0,.18);
 }
-.stage .plan, .stage .marks {
+.stage .plan-pic, .stage .marks {
   position: absolute; inset: 0; width: 100%; height: 100%; display: block;
 }
-.stage .marks { cursor: pointer; touch-action: manipulation; }
+.stage .plan-pic { max-width: none; }
+/* Strokes and drags start on the plan, so it does not scroll the page. */
+.stage .marks { cursor: pointer; touch-action: none; user-select: none; }
+.mark-label { fill: #fff; font-weight: 800; font-family: system-ui, sans-serif; }
+/* The app's plan tools: equal buttons, icon over label, the chosen one inked. */
+.tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem;
+  max-width: 34rem; margin-top: .7rem; }
+.tools[hidden] { display: none; }
+.tool { display: flex; flex-direction: column; align-items: center; gap: .1rem;
+  padding: .4rem .3rem; border-radius: 12px; cursor: pointer;
+  background: var(--card); color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  font: 600 .8rem system-ui, sans-serif; }
+.tool.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tool-icon { width: 20px; height: 20px; background: currentColor;
+  -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
+.ghost { position: fixed; z-index: 10; pointer-events: none;
+  filter: drop-shadow(0 .3rem .5rem rgba(0,0,0,.35)); transform: scale(1.1); }
+.tray .card { touch-action: none; user-select: none; }
 .case-info {
   font: .95rem system-ui, sans-serif; color: var(--muted);
   min-height: 1.5em; margin: .6rem 0;
