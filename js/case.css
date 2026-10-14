@@ -1,0 +1,57 @@
+/* The playable case, dressed the way the game dresses it: the plan on paper,
+   the suspect cards in a tray, the clues as numbered rows with a red bar on
+   the one the plan is showing. */
+.case-head { display: flex; align-items: center; gap: .9rem; margin: 1rem 0; }
+.case-head img { width: 4rem; height: 4rem; flex: none; }
+.case-head .level { font: 800 1.15rem system-ui, sans-serif; margin: 0; }
+.case-head .meta { font: .9rem system-ui, sans-serif; color: var(--muted); margin: 0; }
+.story { font-style: italic; }
+.stage {
+  position: relative; width: 100%; max-width: 34rem; aspect-ratio: 1;
+  background: #F4F1EA; border-radius: .8rem; overflow: hidden;
+  box-shadow: 0 .3rem 1.2rem rgba(0,0,0,.18);
+}
+.stage .plan, .stage .marks {
+  position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+}
+.stage .marks { cursor: pointer; touch-action: manipulation; }
+.case-info {
+  font: .95rem system-ui, sans-serif; color: var(--muted);
+  min-height: 1.5em; margin: .6rem 0;
+}
+.tray { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tray .card {
+  padding: 0; border: 0; background: none; cursor: pointer; line-height: 0;
+  border-radius: .5rem;
+}
+.tray .card img { width: 4.6rem; height: auto; }
+.tray .card.on { outline: 3px solid #C8102E; outline-offset: -2px; }
+.tray .card[hidden] { display: none; }
+.actions { display: flex; gap: .6rem; margin: 1rem 0; flex-wrap: wrap; }
+.solve, .reset {
+  border-radius: 2rem; padding: .8rem 1.4rem; cursor: pointer;
+  font: 700 1rem system-ui, sans-serif;
+}
+.solve { background: #C8102E; color: #fff; border: 0; }
+.solve:disabled { opacity: .4; cursor: default; }
+.reset { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.hint { font: .9rem system-ui, sans-serif; color: var(--muted); }
+.clues { list-style: none; padding: 0; margin: 0; }
+.clue {
+  display: flex; gap: .3rem; align-items: center; width: 100%;
+  padding: .45rem .3rem .45rem .5rem; text-align: left; cursor: pointer;
+  background: transparent; border: 0; border-left: 4px solid transparent;
+  font: 1rem/1.4 system-ui, sans-serif; color: var(--ink);
+}
+.clue .num { width: 1.5rem; flex: none; font-size: .8rem; color: var(--muted); }
+.clue.on { background: rgba(200, 16, 46, .18); border-left-color: #C8102E; }
+.clue.used .text { text-decoration: line-through; opacity: .45; }
+.verdict {
+  background: #C8102E; color: #fff; border-radius: 1rem;
+  padding: 1.3rem; margin: 1rem 0; text-align: center;
+}
+.verdict[hidden] { display: none; }
+.verdict .label { font: 800 .9rem system-ui, sans-serif; letter-spacing: .3em; }
+.verdict .who { font: 800 2.2rem system-ui, sans-serif; margin: .2rem 0; }
+.verdict p { margin: .4rem 0 1rem; }
+.verdict .pill { background: #fff; color: #C8102E; }

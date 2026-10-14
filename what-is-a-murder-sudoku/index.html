@@ -143,6 +143,59 @@
   th, td { text-align: left; vertical-align: top; padding: .5rem .4rem;
     border-bottom: 1px solid var(--rule); }
   .quote { font-style: italic; font-size: 1.1rem; }
+  .plan-img { width: 100%; max-width: 26rem; height: auto; display: block;
+    border-radius: .8rem; box-shadow: 0 .3rem 1.2rem rgba(0,0,0,.18); }
+  .pill { display: inline-block; padding: .45rem .95rem; border-radius: 2rem;
+    background: rgba(200,16,46,.1); color: var(--link); text-decoration: none;
+    font: 700 .95rem system-ui, sans-serif; }
+  .links { display: grid; gap: .9rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+  .link-card { display: flex; flex-direction: column; background: var(--card);
+    border: 1px solid var(--rule); border-radius: 1rem; overflow: hidden;
+    color: var(--ink); text-decoration: none;
+    box-shadow: 0 .2rem .8rem rgba(0,0,0,.08); transition: transform .15s; }
+  .link-card:hover { transform: translateY(-2px); }
+  .link-card .thumb { display: block; aspect-ratio: 16 / 10; overflow: hidden;
+    background: #F4F1EA; }
+  .link-card .thumb img { width: 100%; height: 100%; object-fit: cover;
+    object-position: center 35%; display: block; }
+  .link-card.icon .thumb { background: linear-gradient(135deg, #F7E3D7, #E9C2B0); }
+  .link-card.icon .thumb img { object-fit: contain; padding: 1.2rem; }
+  .link-card .txt { display: flex; flex-direction: column; gap: .25rem;
+    padding: .8rem 1rem 1rem; font-family: system-ui, sans-serif; }
+  .link-card .txt span { color: var(--muted); font-size: .92rem; }
+  .play-banner { display: grid; grid-template-columns: minmax(7rem, 40%) 1fr;
+    gap: 1rem; align-items: center; background: var(--card);
+    border: 1px solid var(--rule); border-radius: 1.2rem; padding: .8rem;
+    color: var(--ink); text-decoration: none;
+    box-shadow: 0 .3rem 1.2rem rgba(0,0,0,.12); }
+  .play-banner img { width: 100%; height: auto; border-radius: .8rem; display: block; }
+  .play-banner > span { display: flex; flex-direction: column; gap: .4rem;
+    font-family: system-ui, sans-serif; }
+  .play-banner strong { font-size: 1.3rem; line-height: 1.2; }
+  .play-banner span span { color: var(--muted); }
+  .play-banner em { font-style: normal; font-weight: 700; align-self: flex-start;
+    background: var(--verdict); color: #fff; padding: .55rem 1.1rem;
+    border-radius: 2rem; }
+  .season { font: 700 .85rem system-ui, sans-serif; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted); }
+  .level { margin: 1.6rem 0; }
+  .level-head { display: flex; align-items: center; gap: .9rem; margin-bottom: .8rem; }
+  .level-head h2 { margin: 0; font-family: system-ui, sans-serif; font-weight: 800; }
+  .level-head p { margin: 0; color: var(--muted); font: .92rem system-ui, sans-serif; }
+  .case-grid { display: grid; gap: .7rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(46%, 9rem), 1fr)); }
+  .case-card { display: flex; flex-direction: column; gap: .2rem; padding: .5rem;
+    background: var(--card); border: 1px solid var(--rule); border-radius: .9rem;
+    color: var(--ink); text-decoration: none; font-family: system-ui, sans-serif; }
+  .case-card img { width: 100%; height: auto; border-radius: .6rem; display: block; }
+  .case-card .case-name { font-weight: 800; }
+  .case-card .case-meta { color: var(--muted); font-size: .85rem; }
+  .case-card.locked { justify-content: center; align-items: center; text-align: center;
+    background: repeating-linear-gradient(45deg, var(--card), var(--card) 10px,
+      var(--paper) 10px, var(--paper) 20px); }
+  .case-card .lock { display: block; opacity: .9; margin-bottom: .3rem; }
+  .case-nav { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem; }
   .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
   .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
   .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
@@ -213,7 +266,7 @@ the clues to work out who did it, where and why.
 </ul>
 
 <div class="next"><strong>Play today&#x27;s case</strong><p>Two new cases every day, the same for everyone. Free, with no forced adverts.</p><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dwhat-is-a-murder-sudoku_end"><img src="../img/play-en.png" alt="Get it on Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a></div>
-<h2>More guides</h2><ul><li><a href="../how-to-solve-murder-sudoku/">How to solve a murder sudoku, step by step</a></li><li><a href="../how-to-solve-the-interrogation/">How to solve The Interrogation</a></li><li><a href="../murder-sudoku-clues-explained/">Murder sudoku clues explained, one by one</a></li></ul>
+<h2>Keep playing</h2><div class="links"><a class="link-card" href="/murder-sudoku-online/"><span class="thumb"><img src="/art/s1-cs-easy-0/en/solved-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>Play murder sudoku online</strong><span>10 free cases in your browser, from easy to extreme.</span></span></a><a class="link-card" href="/how-to-solve-murder-sudoku/"><span class="thumb"><img src="/art/daily-2026-09-21/en/solved-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>How to solve a murder sudoku</strong><span>The rules, and a real case solved step by step.</span></span></a><a class="link-card" href="/murder-sudoku-clues-explained/"><span class="thumb"><img src="/art/daily-2026-10-13/en/clue-6-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>Every clue, explained</strong><span>What each clue means and which squares it rules out.</span></span></a><a class="link-card icon" href="/how-to-solve-the-interrogation/"><span class="thumb"><img src="/art/items/gun.webp" alt="" loading="lazy"></span><span class="txt"><strong>How to solve The Interrogation</strong><span>Who did it, where and why, clue by clue.</span></span></a></div>
 </main>
 <footer><div class="wrap">
 <a href="../">Guilty Hour</a> · <a href="../privacy/">Privacy policy</a> ·

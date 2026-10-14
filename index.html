@@ -143,6 +143,59 @@
   th, td { text-align: left; vertical-align: top; padding: .5rem .4rem;
     border-bottom: 1px solid var(--rule); }
   .quote { font-style: italic; font-size: 1.1rem; }
+  .plan-img { width: 100%; max-width: 26rem; height: auto; display: block;
+    border-radius: .8rem; box-shadow: 0 .3rem 1.2rem rgba(0,0,0,.18); }
+  .pill { display: inline-block; padding: .45rem .95rem; border-radius: 2rem;
+    background: rgba(200,16,46,.1); color: var(--link); text-decoration: none;
+    font: 700 .95rem system-ui, sans-serif; }
+  .links { display: grid; gap: .9rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+  .link-card { display: flex; flex-direction: column; background: var(--card);
+    border: 1px solid var(--rule); border-radius: 1rem; overflow: hidden;
+    color: var(--ink); text-decoration: none;
+    box-shadow: 0 .2rem .8rem rgba(0,0,0,.08); transition: transform .15s; }
+  .link-card:hover { transform: translateY(-2px); }
+  .link-card .thumb { display: block; aspect-ratio: 16 / 10; overflow: hidden;
+    background: #F4F1EA; }
+  .link-card .thumb img { width: 100%; height: 100%; object-fit: cover;
+    object-position: center 35%; display: block; }
+  .link-card.icon .thumb { background: linear-gradient(135deg, #F7E3D7, #E9C2B0); }
+  .link-card.icon .thumb img { object-fit: contain; padding: 1.2rem; }
+  .link-card .txt { display: flex; flex-direction: column; gap: .25rem;
+    padding: .8rem 1rem 1rem; font-family: system-ui, sans-serif; }
+  .link-card .txt span { color: var(--muted); font-size: .92rem; }
+  .play-banner { display: grid; grid-template-columns: minmax(7rem, 40%) 1fr;
+    gap: 1rem; align-items: center; background: var(--card);
+    border: 1px solid var(--rule); border-radius: 1.2rem; padding: .8rem;
+    color: var(--ink); text-decoration: none;
+    box-shadow: 0 .3rem 1.2rem rgba(0,0,0,.12); }
+  .play-banner img { width: 100%; height: auto; border-radius: .8rem; display: block; }
+  .play-banner > span { display: flex; flex-direction: column; gap: .4rem;
+    font-family: system-ui, sans-serif; }
+  .play-banner strong { font-size: 1.3rem; line-height: 1.2; }
+  .play-banner span span { color: var(--muted); }
+  .play-banner em { font-style: normal; font-weight: 700; align-self: flex-start;
+    background: var(--verdict); color: #fff; padding: .55rem 1.1rem;
+    border-radius: 2rem; }
+  .season { font: 700 .85rem system-ui, sans-serif; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted); }
+  .level { margin: 1.6rem 0; }
+  .level-head { display: flex; align-items: center; gap: .9rem; margin-bottom: .8rem; }
+  .level-head h2 { margin: 0; font-family: system-ui, sans-serif; font-weight: 800; }
+  .level-head p { margin: 0; color: var(--muted); font: .92rem system-ui, sans-serif; }
+  .case-grid { display: grid; gap: .7rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(46%, 9rem), 1fr)); }
+  .case-card { display: flex; flex-direction: column; gap: .2rem; padding: .5rem;
+    background: var(--card); border: 1px solid var(--rule); border-radius: .9rem;
+    color: var(--ink); text-decoration: none; font-family: system-ui, sans-serif; }
+  .case-card img { width: 100%; height: auto; border-radius: .6rem; display: block; }
+  .case-card .case-name { font-weight: 800; }
+  .case-card .case-meta { color: var(--muted); font-size: .85rem; }
+  .case-card.locked { justify-content: center; align-items: center; text-align: center;
+    background: repeating-linear-gradient(45deg, var(--card), var(--card) 10px,
+      var(--paper) 10px, var(--paper) 20px); }
+  .case-card .lock { display: block; opacity: .9; margin-bottom: .3rem; }
+  .case-nav { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.5rem; }
   .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
   .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
   .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
@@ -169,11 +222,12 @@
 </header>
 <div class="shots"><img src="img/en-2.webp" alt="Guilty: the verdict when the case is solved" width="432" height="768" loading="lazy"><img src="img/en-3.webp" alt="The Interrogation: working out who had which weapon" width="432" height="768" loading="lazy"><img src="img/en-4.webp" alt="The home screen with both daily cases solved" width="432" height="768" loading="lazy"><img src="img/en-5.webp" alt="A season’s four levels: easy, medium, hard and extreme" width="432" height="768" loading="lazy"><img src="img/en-6.webp" alt="The detective editor: hats, glasses and outfits" width="432" height="768" loading="lazy"><img src="img/en-7.webp" alt="A guided case that teaches the rules" width="432" height="768" loading="lazy"></div>
 <main class="wrap">
-<section><h2>How it works</h2><div class="grid"><div class="card"><h3>The Scene</h3><p>A murder sudoku. You get the floor plan of a house and a handful of suspects. Read the clues — “Nell was in the kitchen”, “Iris was not in the same row as the lantern” — and place every suspect where they stood: one per row, one per column, one per room. Pencil in notes, cross squares out, then solve the case: the body appears, and whoever was alone with it is guilty.</p><p class="solve"><a href="how-to-solve-murder-sudoku/">How to solve it →</a></p></div><div class="card"><h3>The Interrogation</h3><p>A whodunit. There has been a murder: every suspect had a weapon, was in a room and had a motive. Cross-check what the clues say, rule out what cannot be, leave a “?” on a hunch, and work out who did it, with what, where and why.</p><p class="solve"><a href="how-to-solve-the-interrogation/">How to solve it →</a></p></div></div></section>
+<section><a class="play-banner" href="/murder-sudoku-online/"><img src="/art/s1-cs-medium-0/en/solved-thumb.webp" alt="" width="360" height="360"><span><strong>Play murder sudoku online</strong><span>10 free cases in your browser, from easy to extreme.</span><em>Play now →</em></span></a></section>
+<section><h2>How it works</h2><div class="grid"><div class="card"><h3>The Scene</h3><p>A murder sudoku. You get the floor plan of a house and a handful of suspects. Read the clues — “Nell was in the kitchen”, “Iris was not in the same row as the lantern” — and place every suspect where they stood: one per row, one per column, one per room. Pencil in notes, cross squares out, then solve the case: the body appears, and whoever was alone with it is guilty.</p><p class="solve"><a class="pill" href="how-to-solve-murder-sudoku/">How to solve it →</a></p></div><div class="card"><h3>The Interrogation</h3><p>A whodunit. There has been a murder: every suspect had a weapon, was in a room and had a motive. Cross-check what the clues say, rule out what cannot be, leave a “?” on a hunch, and work out who did it, with what, where and why.</p><p class="solve"><a class="pill" href="how-to-solve-the-interrogation/">How to solve it →</a></p></div></div></section>
 <section><h2>Why players stay</h2><div class="grid"><div class="card"><h3>One solution, always</h3><p>Every case is checked before it ships. There is exactly one answer and you never have to guess.</p></div><div class="card"><h3>No forced adverts</h3><p>Nothing plays between cases. The only advert is one you choose to watch for an extra hint.</p></div><div class="card"><h3>Two daily cases</h3><p>One of each kind, each with its own streak. Every three days in a row earns a free hint.</p></div><div class="card"><h3>Seasons of four levels</h3><p>Easy, medium, hard and extreme, from 5×5 to 12×12, with a bar that fills as you go.</p></div><div class="card"><h3>Play with friends</h3><p>Start a group, share its code and see who solves the daily first. No accounts, no emails.</p></div><div class="card"><h3>Your own detective</h3><p>Hats, glasses and trench coats for the face others see on the standings, plus ranks, badges and alibis that save a streak.</p></div><div class="card"><h3>Share without spoilers</h3><p>A row of coloured squares that shows how you got there, never where anyone was.</p></div><div class="card"><h3>Plays offline</h3><p>Every case is inside the app. The whole game is about 25 MB.</p></div><div class="card"><h3>Written, not translated</h3><p>Cases are written natively in English and Spanish.</p></div></div></section>
 <section><h2>Questions</h2><details><summary>Is it free?</summary><p>Yes. Both daily cases and 300 library cases are free. Extra case files, hints, ranks and removing adverts are optional one-time purchases. There is no subscription.</p></details><details><summary>Do I need to be good at sudoku?</summary><p>No. If you can read “Nell was in the kitchen” and cross off what cannot be, you can solve a case. The first cases teach the rules as you go, and there are four levels, from 5×5 to 12×12.</p></details><details><summary>Can a case have two answers?</summary><p>No. Every case is verified by a program before it ships: exactly one arrangement fits every clue, and it can be reached without guessing.</p></details><details><summary>What happens if I get stuck?</summary><p>A free hint every day points at the next logical step, every three days of streak adds another, and the daily gives you three free tries at naming the killer.</p></details><details><summary>Do I have to guess who the killer is?</summary><p>No. The body stays off the plan until everyone is placed. When the plan is full, Solve the case checks it and reveals who was alone with the victim.</p></details><details><summary>Is it the same case for everybody?</summary><p>Yes. The daily case changes at midnight in your time zone, and everyone plays the same one that day, so you can compare results with friends.</p></details><details><summary>What data does it collect?</summary><p>Almost none. There are no accounts. See the privacy policy.</p></details></section>
 <section class="end"><h2>Today&#x27;s case is waiting</h2><p>Two new cases every day, the same for everyone. Free, with no forced adverts.</p><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Den_home_end"><img src="img/play-en.png" alt="Get it on Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a></section>
-<section><h2>Guides</h2><ul class="guides"><li><a href="how-to-solve-murder-sudoku/">How to solve a murder sudoku, step by step</a></li><li><a href="how-to-solve-the-interrogation/">How to solve The Interrogation</a></li><li><a href="what-is-a-murder-sudoku/">What is a murder sudoku?</a></li><li><a href="murder-sudoku-clues-explained/">Murder sudoku clues explained, one by one</a></li></ul></section>
+<section><h2>Play and learn</h2><div class="links"><a class="link-card" href="/murder-sudoku-online/"><span class="thumb"><img src="/art/s1-cs-easy-0/en/solved-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>Play murder sudoku online</strong><span>10 free cases in your browser, from easy to extreme.</span></span></a><a class="link-card" href="/how-to-solve-murder-sudoku/"><span class="thumb"><img src="/art/daily-2026-09-21/en/solved-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>How to solve a murder sudoku</strong><span>The rules, and a real case solved step by step.</span></span></a><a class="link-card" href="/murder-sudoku-clues-explained/"><span class="thumb"><img src="/art/daily-2026-10-13/en/clue-6-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>Every clue, explained</strong><span>What each clue means and which squares it rules out.</span></span></a><a class="link-card" href="/what-is-a-murder-sudoku/"><span class="thumb"><img src="/art/s1-cs-medium-0/en/solved-thumb.webp" alt="" loading="lazy"></span><span class="txt"><strong>What is a murder sudoku?</strong><span>How it works, and how it differs from sudoku.</span></span></a><a class="link-card icon" href="/how-to-solve-the-interrogation/"><span class="thumb"><img src="/art/items/gun.webp" alt="" loading="lazy"></span><span class="txt"><strong>How to solve The Interrogation</strong><span>Who did it, where and why, clue by clue.</span></span></a></div></section>
 </main>
 <footer><div class="wrap">
 Guilty Hour · <a href="press/">Press kit</a> · <a href="privacy/">Privacy policy</a> ·
