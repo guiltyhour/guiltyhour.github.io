@@ -278,7 +278,7 @@
     if (!drag.moved && Math.hypot(ev.clientX - drag.x, ev.clientY - drag.y) > 6) {
       drag.moved = true;
       startGhost(drag.name, ev);
-      if (drag.from) { delete state.pos[drag.name]; render(); }
+      if (drag.from) { takeOff(drag.name); render(); }
     }
     moveGhost(ev);
   }
@@ -302,7 +302,8 @@
       selected = null;
       say(hintFor());
     } else if (d.from && at) {
-      state.pos[d.name] = d.from;
+      // Dropped on furniture: back where it came from.
+      put(d.name, d.from.split(',').map(Number));
     }
     save();
     render();
@@ -311,20 +312,57 @@
   function onCancel() {
     unlisten();
     stroke = null;
-    if (drag && drag.from && drag.moved) state.pos[drag.name] = drag.from;
+    if (drag && drag.from && drag.moved) put(drag.name, drag.from.split(',').map(Number));
     drag = null;
     endGhost();
     render();
   }
 
+  // Who a clue is about: its subject, and the other suspect when it names one.
+  function cast(clue) {
+    return names.indexOf(clue.other) >= 0 ? [clue.subject, clue.other] : [clue.subject];
+  }
+  function room(k) {
+    var rc = k.split(',').map(Number);
+    return c.roomAt[rc[0]][rc[1]];
+  }
+  function inPath(k, at) {
+    var a = k.split(','), b = at.split(',');
+    return k !== at && (a[0] === b[0] || a[1] === b[1] || room(k) === room(at));
+  }
+
+  // Board.place with the app's default settings: the cross under the pawn
+  // goes, the suspect's own marks go everywhere, and so does every mark in the
+  // new pawn's row, column and room. A clue whose suspects are all placed
+  // counts as used.
   function put(name, at) {
     var k = key(at[0], at[1]);
     if (blocked[k]) { say(w.furniture.replace('%s', furnitureAt[k].name)); return false; }
     var other = occupant(k);
-    if (other && other !== name) delete state.pos[other];
+    if (other && other !== name) takeOff(other);
     state.pos[name] = k;
     delete state.crosses[k];
+    [state.notes, state.scross].forEach(function (map) {
+      Object.keys(map).forEach(function (cell) {
+        if (inPath(cell, k)) delete map[cell];
+        else toggle(map, cell, name, false);
+      });
+    });
+    c.clues.forEach(function (clue, i) {
+      if (cast(clue).indexOf(name) >= 0 &&
+          cast(clue).every(function (x) { return state.pos[x]; })) {
+        state.used[i] = true;
+      }
+    });
     return true;
+  }
+
+  // Board.removeSuspect: off the plan, and their clues back into play.
+  function takeOff(name) {
+    delete state.pos[name];
+    c.clues.forEach(function (clue, i) {
+      if (cast(clue).indexOf(name) >= 0) delete state.used[i];
+    });
   }
 
   function tapPlace(at, k) {
@@ -395,6 +433,17 @@
 
     if (!state.solved) {
       var bad = clashes();
+      // Board.autoCrosses: the rest of every placed suspect's row, column and
+      // room, drawn lighter than the player's own crosses.
+      var placed = names.map(function (x) { return state.pos[x]; }).filter(Boolean);
+      var implied = {};
+      for (var ar = 0; ar < n; ar++) {
+        for (var ac = 0; ac < n; ac++) {
+          var ak = key(ar, ac);
+          if (blocked[ak] || occupant(ak)) continue;
+          if (placed.some(function (at) { return inPath(ak, at); })) implied[ak] = true;
+        }
+      }
       var clue = lit == null ? null : c.clues[lit];
       var litCells = {};
       if (clue) clue.cells.forEach(function (rc) { litCells[key(rc[0], rc[1])] = true; });
@@ -410,6 +459,8 @@
           var cx = gutter + (col + 0.5) * side, cy = gutter + (r + 0.5) * side;
           if (state.crosses[k]) {
             overlay.appendChild(lines(cx, cy, side * 0.3, VERDICT, Math.max(2, side * 0.08), 0.9));
+          } else if (implied[k]) {
+            overlay.appendChild(lines(cx, cy, side * 0.3, VERDICT, Math.max(1.8, side * 0.065), 0.5));
           }
           // Laid out by how many marks the square holds, as the app does.
           var here = [];
