@@ -8,14 +8,22 @@
 <link rel="canonical" href="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
 <link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
 <link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
-<link rel="icon" href="../../img/icon-512.png">
+<link rel="alternate" hreflang="x-default" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
+<link rel="icon" href="https://guiltyhour.github.io/favicon.ico" sizes="48x48">
+<link rel="icon" href="../../img/icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="https://guiltyhour.github.io/apple-touch-icon.png">
 <meta name="theme-color" content="#C8102E">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="Guilty Hour">
 <meta property="og:title" content="Cómo resolver un sudoku de crímenes, paso a paso">
 <meta property="og:description" content="Reglas del sudoku de crímenes de Guilty Hour y un caso real resuelto paso a paso: filas, columnas y salas para encontrar al asesino.">
 <meta property="og:url" content="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
 <meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo resolver un sudoku de crímenes, paso a paso", "description": "Reglas del sudoku de crímenes de Guilty Hour y un caso real resuelto paso a paso: filas, columnas y salas para encontrar al asesino.", "inLanguage": "es", "url": "https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26"}</script>
+<meta property="og:image:alt" content="Guilty Hour">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo resolver un sudoku de crímenes, paso a paso", "description": "Reglas del sudoku de crímenes de Guilty Hour y un caso real resuelto paso a paso: filas, columnas y salas para encontrar al asesino.", "inLanguage": "es", "url": "https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/", "mainEntityOfPage": "https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/", "image": "https://guiltyhour.github.io/img/feature-1024x500.png", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/", "logo": "https://guiltyhour.github.io/img/icon-512.png"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26", "dateModified": "2026-10-14"}</script>
 <style>
   :root {
     color-scheme: light dark;
@@ -42,8 +50,18 @@
   header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
   .top {
     display: flex; justify-content: space-between; align-items: center;
-    font: .95rem system-ui, sans-serif;
+    flex-wrap: wrap; gap: .5rem 1rem; font: .95rem system-ui, sans-serif;
   }
+  .top-links { display: flex; align-items: center; gap: 1rem; }
+  .hero-body { display: grid; gap: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) {
+    .hero-body { grid-template-columns: 1fr auto; }
+  }
+  .hero-shot {
+    width: min(60vw, 15rem); height: auto; border-radius: 1rem;
+    justify-self: center; box-shadow: 0 .6rem 2rem rgba(0,0,0,.35);
+  }
+  .badge { display: inline-block; line-height: 0; }
   .top a { color: var(--on-verdict); }
   .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
   .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
@@ -52,6 +70,9 @@
     margin: 2.5rem 0 1rem; max-width: 16ch;
   }
   .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .end { margin: 2rem 0; text-align: center; }
+  .end p { color: var(--muted); margin: .3rem 0 1rem; }
+  .card .solve { margin-top: .6rem; }
   .cta {
     display: inline-block; background: var(--on-verdict); color: #14110F;
     padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
@@ -126,8 +147,8 @@
 </head>
 <body>
 <div class="bar"><div class="wrap top">
-<a class="brand" href="../../es/"><img src="../../img/icon-512.png" alt="" width="40" height="40">Guilty Hour</a>
-<a href="../../how-to-solve-murder-sudoku/" hreflang="en" lang="en">English</a>
+<a class="brand" href="../../es/"><img src="../../img/icon-96.png" alt="" width="40" height="40">Guilty Hour</a>
+<span class="top-links"><a href="../../how-to-solve-murder-sudoku/" hreflang="en" lang="en">English</a><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dcomo-resolver-un-sudoku-de-crimenes_top"><img src="../../img/play-es.png" alt="Descárgalo en Google Play" width="188" height="56" style="height:2.25rem;width:auto"></a></span>
 </div></div>
 <main class="article">
 
@@ -175,7 +196,7 @@ La noche de la vendimia en la finca Solana acaba con las prensas aún en marcha 
 <p>Los sospechosos:</p>
 <ul><li><strong>Tomás</strong>, el chófer</li><li><strong>Amparo</strong>, la vendimiadora</li><li><strong>Duarte</strong>, el sobrino</li><li><strong>Benito</strong>, el enólogo</li><li><strong>Iris</strong>, la sumiller</li></ul>
 <p>Las pistas:</p>
-<ol><li>Amparo estaba en algún punto de la fila 2.</li><li>Iris estaba en la misma columna que el escritorio.</li><li>Benito estaba en la sala de embotellado.</li><li>Tomás estaba en algún punto de la columna B.</li><li>Duarte estaba en la misma fila que el candelabro.</li></ol>
+<ol><li>Amparo estaba en algún punto de la columna E.</li><li>Iris estaba en la misma columna que el escritorio.</li><li>Amparo estaba en algún punto de la fila 2.</li><li>Benito estaba en la misma fila que el olivo.</li><li>Benito estaba en la sala de embotellado.</li><li>Duarte estaba en la misma fila que el candelabro.</li><li>Tomás estaba en algún punto de la columna B.</li><li>Duarte estaba en algún punto de la fila 3.</li></ol>
 
 <h2>Paso a paso</h2>
 <ol class="steps">
@@ -227,11 +248,13 @@ solo.</li>
 cada tres días de racha te llevas una pista gratis.</li>
 </ul>
 
-<div class="next"><strong>Juega el caso de hoy</strong><p>Dos casos nuevos cada día, los mismos para todos. Gratis y sin anuncios obligatorios.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es">Descárgalo en Google Play</a></div>
+<div class="next"><strong>Juega el caso de hoy</strong><p>Dos casos nuevos cada día, los mismos para todos. Gratis y sin anuncios obligatorios.</p><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dcomo-resolver-un-sudoku-de-crimenes_end"><img src="../../img/play-es.png" alt="Descárgalo en Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a></div>
+<h2>Más guías</h2><ul><li><a href="../../es/como-resolver-el-interrogatorio/">Cómo resolver El Interrogatorio</a></li></ul>
 </main>
 <footer><div class="wrap">
 <a href="../../es/">Guilty Hour</a> · <a href="../../privacy/">Política de privacidad</a> ·
 <a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+<p>Google Play y el logotipo de Google Play son marcas de Google LLC.</p>
 </div></footer>
 </body>
 </html>

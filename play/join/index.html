@@ -29,7 +29,7 @@
 <h1 id="title">You are invited to a Guilty Hour group</h1>
 <p id="lede">Compare the daily case with your friends. No accounts.</p>
 <div class="code" id="code"></div>
-<a class="cta" id="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app">Get it on Google Play</a>
+<a class="cta" id="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dinvite">Get it on Google Play</a>
 <p class="steps" id="steps">Once it is installed, open this link again, or go to Today's standings, then Friends, then Join with a code.</p>
 </main>
 <script>
@@ -43,7 +43,7 @@
     document.getElementById('lede').textContent = 'Compara el reto diario con tus amigos. Sin cuentas.';
     var cta = document.getElementById('cta');
     cta.textContent = 'Descárgalo en Google Play';
-    cta.href += '&hl=es';
+    cta.href = cta.href.replace('hl=en', 'hl=es');
     document.getElementById('steps').textContent = 'Cuando lo tengas, vuelve a abrir este enlace, o entra en Clasificación de hoy, Amigos y Unirme con un código.';
   }
 </script>

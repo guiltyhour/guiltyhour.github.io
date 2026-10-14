@@ -8,14 +8,22 @@
 <link rel="canonical" href="https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/">
 <link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/">
 <link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/how-to-solve-the-interrogation/">
-<link rel="icon" href="../../img/icon-512.png">
+<link rel="alternate" hreflang="x-default" href="https://guiltyhour.github.io/how-to-solve-the-interrogation/">
+<link rel="icon" href="https://guiltyhour.github.io/favicon.ico" sizes="48x48">
+<link rel="icon" href="../../img/icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="https://guiltyhour.github.io/apple-touch-icon.png">
 <meta name="theme-color" content="#C8102E">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="Guilty Hour">
 <meta property="og:title" content="Cómo resolver El Interrogatorio: quién fue, dónde y por qué">
 <meta property="og:description" content="Las reglas de El Interrogatorio de Guilty Hour y un caso real resuelto frase a frase: cómo cruzar las pistas para saber quién lo hizo.">
 <meta property="og:url" content="https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/">
 <meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo resolver El Interrogatorio: quién fue, dónde y por qué", "description": "Las reglas de El Interrogatorio de Guilty Hour y un caso real resuelto frase a frase: cómo cruzar las pistas para saber quién lo hizo.", "inLanguage": "es", "url": "https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26"}</script>
+<meta property="og:image:alt" content="Guilty Hour">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo resolver El Interrogatorio: quién fue, dónde y por qué", "description": "Las reglas de El Interrogatorio de Guilty Hour y un caso real resuelto frase a frase: cómo cruzar las pistas para saber quién lo hizo.", "inLanguage": "es", "url": "https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/", "mainEntityOfPage": "https://guiltyhour.github.io/es/como-resolver-el-interrogatorio/", "image": "https://guiltyhour.github.io/img/feature-1024x500.png", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/", "logo": "https://guiltyhour.github.io/img/icon-512.png"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26", "dateModified": "2026-10-14"}</script>
 <style>
   :root {
     color-scheme: light dark;
@@ -42,8 +50,18 @@
   header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
   .top {
     display: flex; justify-content: space-between; align-items: center;
-    font: .95rem system-ui, sans-serif;
+    flex-wrap: wrap; gap: .5rem 1rem; font: .95rem system-ui, sans-serif;
   }
+  .top-links { display: flex; align-items: center; gap: 1rem; }
+  .hero-body { display: grid; gap: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) {
+    .hero-body { grid-template-columns: 1fr auto; }
+  }
+  .hero-shot {
+    width: min(60vw, 15rem); height: auto; border-radius: 1rem;
+    justify-self: center; box-shadow: 0 .6rem 2rem rgba(0,0,0,.35);
+  }
+  .badge { display: inline-block; line-height: 0; }
   .top a { color: var(--on-verdict); }
   .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
   .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
@@ -52,6 +70,9 @@
     margin: 2.5rem 0 1rem; max-width: 16ch;
   }
   .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .end { margin: 2rem 0; text-align: center; }
+  .end p { color: var(--muted); margin: .3rem 0 1rem; }
+  .card .solve { margin-top: .6rem; }
   .cta {
     display: inline-block; background: var(--on-verdict); color: #14110F;
     padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
@@ -126,8 +147,8 @@
 </head>
 <body>
 <div class="bar"><div class="wrap top">
-<a class="brand" href="../../es/"><img src="../../img/icon-512.png" alt="" width="40" height="40">Guilty Hour</a>
-<a href="../../how-to-solve-the-interrogation/" hreflang="en" lang="en">English</a>
+<a class="brand" href="../../es/"><img src="../../img/icon-96.png" alt="" width="40" height="40">Guilty Hour</a>
+<span class="top-links"><a href="../../how-to-solve-the-interrogation/" hreflang="en" lang="en">English</a><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dcomo-resolver-el-interrogatorio_top"><img src="../../img/play-es.png" alt="Descárgalo en Google Play" width="188" height="56" style="height:2.25rem;width:auto"></a></span>
 </div></div>
 <main class="article">
 
@@ -186,11 +207,13 @@ de alguien, el resto de opciones de esa persona se descartan solas.</li>
 <li>Toca una pista y la app te enseña a qué se refiere.</li>
 </ul>
 
-<div class="next"><strong>Juega el caso de hoy</strong><p>Dos casos nuevos cada día, los mismos para todos. Gratis y sin anuncios obligatorios.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es">Descárgalo en Google Play</a></div>
+<div class="next"><strong>Juega el caso de hoy</strong><p>Dos casos nuevos cada día, los mismos para todos. Gratis y sin anuncios obligatorios.</p><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=es&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dcomo-resolver-el-interrogatorio_end"><img src="../../img/play-es.png" alt="Descárgalo en Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a></div>
+<h2>Más guías</h2><ul><li><a href="../../es/como-resolver-un-sudoku-de-crimenes/">Cómo resolver un sudoku de crímenes, paso a paso</a></li></ul>
 </main>
 <footer><div class="wrap">
 <a href="../../es/">Guilty Hour</a> · <a href="../../privacy/">Política de privacidad</a> ·
 <a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+<p>Google Play y el logotipo de Google Play son marcas de Google LLC.</p>
 </div></footer>
 </body>
 </html>

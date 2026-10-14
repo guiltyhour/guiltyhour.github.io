@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Guilty Hour — page not found</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<style>
+  :root {
+    color-scheme: light dark;
+    --verdict: #C8102E; --verdict-deep: #6B0F1A; --on-verdict: #FFFFFF;
+    --ink: #14110F; --paper: #F4F1EA; --card: #FFFFFF; --rule: #DDD6C8;
+    --muted: #5A534A; --link: #9E0D24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --verdict: #A50D26; --verdict-deep: #4A0A12;
+      --ink: #ECE7DE; --paper: #16181C; --card: #1F2227; --rule: #33363D;
+      --muted: #A9A298; --link: #F07A8C;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 1.0625rem/1.6 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  a { color: var(--link); }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+  header.hero { background: var(--verdict); color: var(--on-verdict); }
+  header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: .5rem 1rem; font: .95rem system-ui, sans-serif;
+  }
+  .top-links { display: flex; align-items: center; gap: 1rem; }
+  .hero-body { display: grid; gap: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) {
+    .hero-body { grid-template-columns: 1fr auto; }
+  }
+  .hero-shot {
+    width: min(60vw, 15rem); height: auto; border-radius: 1rem;
+    justify-self: center; box-shadow: 0 .6rem 2rem rgba(0,0,0,.35);
+  }
+  .badge { display: inline-block; line-height: 0; }
+  .top a { color: var(--on-verdict); }
+  .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
+  .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
+  h1 {
+    font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.08;
+    margin: 2.5rem 0 1rem; max-width: 16ch;
+  }
+  .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .end { margin: 2rem 0; text-align: center; }
+  .end p { color: var(--muted); margin: .3rem 0 1rem; }
+  .card .solve { margin-top: .6rem; }
+  .cta {
+    display: inline-block; background: var(--on-verdict); color: #14110F;
+    padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
+    font: 700 1rem system-ui, sans-serif;
+  }
+  .soon { font: .9rem system-ui, sans-serif; opacity: .85; margin-top: .8rem; }
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 2rem 1rem; margin: 0 auto; max-width: 60rem;
+  }
+  .shots img {
+    flex: 0 0 auto; width: min(60vw, 15rem); height: auto;
+    border-radius: 1rem; scroll-snap-align: center;
+    box-shadow: 0 .4rem 1.4rem rgba(0,0,0,.18);
+  }
+  section { padding: 1.5rem 0; }
+  h2 { font-size: 1.6rem; margin: 0 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 0 0 .35rem; }
+  .grid {
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .8rem; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0; color: var(--muted); }
+  details {
+    border-top: 1px solid var(--rule); padding: .9rem 0;
+  }
+  details:last-child { border-bottom: 1px solid var(--rule); }
+  summary { cursor: pointer; font-weight: 700; }
+  details p { margin: .6rem 0 0; color: var(--muted); }
+  footer {
+    margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule);
+    font: .9rem system-ui, sans-serif; color: var(--muted);
+  }
+  footer a { color: inherit; }
+  .bar { background: var(--verdict); color: var(--on-verdict); }
+  .bar .wrap { padding-top: .8rem; padding-bottom: .8rem; }
+  .bar a { color: var(--on-verdict); text-decoration: none; }
+  .article { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  .article h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); margin: 1rem 0; max-width: none; }
+  .article h2 { margin-top: 2.2rem; }
+  .article .lede { max-width: none; font-size: 1.15rem; color: var(--muted); }
+  .article li { margin-bottom: .45rem; }
+  .steps li { margin-bottom: .9rem; }
+  figure { margin: 1.5rem 0; }
+  .plan { width: 100%; max-width: 22rem; height: auto; display: block; }
+  .plan .axis { font: 600 13px system-ui, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .plan .rule { stroke: rgba(0,0,0,.25); stroke-width: 1; stroke-dasharray: 3 4; }
+  .plan .wall, .plan .outline { stroke: #14110F; stroke-width: 4; fill: none; }
+  .plan .furniture { fill: #6B6358; }
+  .plan .victim line { stroke: #C8102E; stroke-width: 5; stroke-linecap: round; }
+  .plan .pawn { font: 700 20px system-ui, sans-serif; fill: #fff; text-anchor: middle; }
+  .legend { list-style: none; padding: 0; margin: .8rem 0 0;
+    display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; font: .9rem system-ui, sans-serif; }
+  .legend li { margin: 0; display: flex; align-items: center; gap: .4rem; }
+  .swatch { width: .9rem; height: .9rem; border-radius: .2rem; border: 1px solid rgba(0,0,0,.2); }
+  .diamond { width: .6rem; height: .6rem; background: #6B6358; transform: rotate(45deg); margin: 0 .15rem; }
+  .cross { color: #C8102E; font-weight: 700; }
+  .next { margin-top: 2.5rem; padding: 1.2rem; background: var(--card);
+    border: 1px solid var(--rule); border-radius: .8rem; }
+  .next p { margin: .3rem 0 .8rem; color: var(--muted); }
+  .next .cta { background: var(--verdict); color: var(--on-verdict); }
+  .files { columns: 2 12rem; }
+  .policy { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem 5rem; }
+  .policy h1 { color: inherit; font-size: 1.9rem; margin: 1rem 0 .4rem; }
+  .policy h2 { font-size: 1.18rem; margin: 2.2rem 0 .5rem; }
+  .policy hr { border: 0; border-top: 1px solid var(--rule); margin: 4rem 0 3rem; }
+</style>
+</head>
+<body>
+<main class="article">
+<h1>This page does not exist</h1>
+<p>Esta página no existe.</p>
+<p>The case you are after is somewhere else.</p>
+<ul>
+<li><a href="/">Guilty Hour</a> · <a href="/es/">Guilty Hour en español</a></li>
+<li><a href="/how-to-solve-murder-sudoku/">How to solve a murder sudoku</a></li>
+<li><a href="/es/como-resolver-un-sudoku-de-crimenes/">Cómo resolver un sudoku de crímenes</a></li>
+</ul>
+<a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dnot_found"><img src="/img/play-en.png" alt="Get it on Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a>
+</main>
+</body>
+</html>

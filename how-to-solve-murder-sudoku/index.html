@@ -8,14 +8,22 @@
 <link rel="canonical" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
 <link rel="alternate" hreflang="en" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
 <link rel="alternate" hreflang="es" href="https://guiltyhour.github.io/es/como-resolver-un-sudoku-de-crimenes/">
-<link rel="icon" href="../img/icon-512.png">
+<link rel="alternate" hreflang="x-default" href="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
+<link rel="icon" href="https://guiltyhour.github.io/favicon.ico" sizes="48x48">
+<link rel="icon" href="../img/icon-512.png" type="image/png">
+<link rel="apple-touch-icon" href="https://guiltyhour.github.io/apple-touch-icon.png">
 <meta name="theme-color" content="#C8102E">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="Guilty Hour">
 <meta property="og:title" content="How to solve a murder sudoku, step by step">
 <meta property="og:description" content="The rules of the murder sudoku in Guilty Hour and a real case solved step by step: rows, columns and rooms to find the killer.">
 <meta property="og:url" content="https://guiltyhour.github.io/how-to-solve-murder-sudoku/">
 <meta property="og:image" content="https://guiltyhour.github.io/img/feature-1024x500.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to solve a murder sudoku, step by step", "description": "The rules of the murder sudoku in Guilty Hour and a real case solved step by step: rows, columns and rooms to find the killer.", "inLanguage": "en", "url": "https://guiltyhour.github.io/how-to-solve-murder-sudoku/", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26"}</script>
+<meta property="og:image:alt" content="Guilty Hour">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to solve a murder sudoku, step by step", "description": "The rules of the murder sudoku in Guilty Hour and a real case solved step by step: rows, columns and rooms to find the killer.", "inLanguage": "en", "url": "https://guiltyhour.github.io/how-to-solve-murder-sudoku/", "mainEntityOfPage": "https://guiltyhour.github.io/how-to-solve-murder-sudoku/", "image": "https://guiltyhour.github.io/img/feature-1024x500.png", "author": {"@type": "Person", "name": "Sergio García"}, "publisher": {"@type": "Organization", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/", "logo": "https://guiltyhour.github.io/img/icon-512.png"}, "about": {"@type": "MobileApplication", "name": "Guilty Hour", "url": "https://guiltyhour.github.io/"}, "datePublished": "2026-09-26", "dateModified": "2026-10-14"}</script>
 <style>
   :root {
     color-scheme: light dark;
@@ -42,8 +50,18 @@
   header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
   .top {
     display: flex; justify-content: space-between; align-items: center;
-    font: .95rem system-ui, sans-serif;
+    flex-wrap: wrap; gap: .5rem 1rem; font: .95rem system-ui, sans-serif;
   }
+  .top-links { display: flex; align-items: center; gap: 1rem; }
+  .hero-body { display: grid; gap: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) {
+    .hero-body { grid-template-columns: 1fr auto; }
+  }
+  .hero-shot {
+    width: min(60vw, 15rem); height: auto; border-radius: 1rem;
+    justify-self: center; box-shadow: 0 .6rem 2rem rgba(0,0,0,.35);
+  }
+  .badge { display: inline-block; line-height: 0; }
   .top a { color: var(--on-verdict); }
   .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
   .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
@@ -52,6 +70,9 @@
     margin: 2.5rem 0 1rem; max-width: 16ch;
   }
   .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .end { margin: 2rem 0; text-align: center; }
+  .end p { color: var(--muted); margin: .3rem 0 1rem; }
+  .card .solve { margin-top: .6rem; }
   .cta {
     display: inline-block; background: var(--on-verdict); color: #14110F;
     padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
@@ -126,8 +147,8 @@
 </head>
 <body>
 <div class="bar"><div class="wrap top">
-<a class="brand" href="../"><img src="../img/icon-512.png" alt="" width="40" height="40">Guilty Hour</a>
-<a href="../es/como-resolver-un-sudoku-de-crimenes/" hreflang="es" lang="es">Español</a>
+<a class="brand" href="../"><img src="../img/icon-96.png" alt="" width="40" height="40">Guilty Hour</a>
+<span class="top-links"><a href="../es/como-resolver-un-sudoku-de-crimenes/" hreflang="es" lang="es">Español</a><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dhow-to-solve-murder-sudoku_top"><img src="../img/play-en.png" alt="Get it on Google Play" width="188" height="56" style="height:2.25rem;width:auto"></a></span>
 </div></div>
 <main class="article">
 
@@ -172,7 +193,7 @@ about.</p>
 <p>The suspects:</p>
 <ul><li><strong>Tom</strong>, the driver</li><li><strong>Amy</strong>, the grape picker</li><li><strong>Rupert</strong>, the nephew</li><li><strong>Ben</strong>, the winemaker</li><li><strong>Iris</strong>, the sommelier</li></ul>
 <p>The clues:</p>
-<ol><li>Amy was somewhere in row 2.</li><li>Iris was in the same column as the desk.</li><li>Ben was in the Bottling Hall.</li><li>Tom was somewhere in column B.</li><li>Rupert was in the same row as the candelabra.</li></ol>
+<ol><li>Amy was somewhere in column E.</li><li>Iris was in the same column as the desk.</li><li>Amy was somewhere in row 2.</li><li>Ben was in the same row as the olive tree.</li><li>Ben was in the Bottling Hall.</li><li>Rupert was in the same row as the candelabra.</li><li>Tom was somewhere in column B.</li><li>Rupert was somewhere in row 3.</li></ol>
 
 <h2>Step by step</h2>
 <ol class="steps">
@@ -220,11 +241,13 @@ out for you.</li>
 days of streak earns a free hint.</li>
 </ul>
 
-<div class="next"><strong>Play today&#x27;s case</strong><p>Two new cases every day, the same for everyone. Free, with no forced adverts.</p><a class="cta" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en">Get it on Google Play</a></div>
+<div class="next"><strong>Play today&#x27;s case</strong><p>Two new cases every day, the same for everyone. Free, with no forced adverts.</p><a class="badge" href="https://play.google.com/store/apps/details?id=com.guiltyhour.app&amp;hl=en&amp;referrer=utm_source%3Dguiltyhour.github.io%26utm_medium%3Dweb%26utm_campaign%3Dhow-to-solve-murder-sudoku_end"><img src="../img/play-en.png" alt="Get it on Google Play" width="188" height="56" style="height:3.5rem;width:auto"></a></div>
+<h2>More guides</h2><ul><li><a href="../how-to-solve-the-interrogation/">How to solve The Interrogation</a></li></ul>
 </main>
 <footer><div class="wrap">
 <a href="../">Guilty Hour</a> · <a href="../privacy/">Privacy policy</a> ·
 <a href="mailto:sergioncio01@gmail.com">sergioncio01@gmail.com</a>
+<p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
 </div></footer>
 </body>
 </html>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guilty Hour — Política de privacidad / Privacy policy</title>
+<meta name="description" content="Qué datos usa Guilty Hour y para qué. What data Guilty Hour uses and why.">
 <link rel="canonical" href="https://guiltyhour.github.io/privacy/">
 <link rel="icon" href="../img/icon-512.png">
 <style>
@@ -32,8 +33,18 @@
   header.hero .wrap { padding-top: 1rem; padding-bottom: 3rem; }
   .top {
     display: flex; justify-content: space-between; align-items: center;
-    font: .95rem system-ui, sans-serif;
+    flex-wrap: wrap; gap: .5rem 1rem; font: .95rem system-ui, sans-serif;
   }
+  .top-links { display: flex; align-items: center; gap: 1rem; }
+  .hero-body { display: grid; gap: 1.5rem; align-items: center; }
+  @media (min-width: 48rem) {
+    .hero-body { grid-template-columns: 1fr auto; }
+  }
+  .hero-shot {
+    width: min(60vw, 15rem); height: auto; border-radius: 1rem;
+    justify-self: center; box-shadow: 0 .6rem 2rem rgba(0,0,0,.35);
+  }
+  .badge { display: inline-block; line-height: 0; }
   .top a { color: var(--on-verdict); }
   .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; }
   .brand img { width: 2.5rem; height: 2.5rem; border-radius: .6rem; }
@@ -42,6 +53,9 @@
     margin: 2.5rem 0 1rem; max-width: 16ch;
   }
   .lede { font-size: 1.2rem; max-width: 38ch; margin: 0 0 1.8rem; }
+  .end { margin: 2rem 0; text-align: center; }
+  .end p { color: var(--muted); margin: .3rem 0 1rem; }
+  .card .solve { margin-top: .6rem; }
   .cta {
     display: inline-block; background: var(--on-verdict); color: #14110F;
     padding: .85rem 1.3rem; border-radius: .6rem; text-decoration: none;
